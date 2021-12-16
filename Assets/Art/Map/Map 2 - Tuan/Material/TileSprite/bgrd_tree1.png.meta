@@ -1,0 +1,1404 @@
+fileFormatVersion: 2
+guid: 49b03b3954c68a04294184f3c6acd968
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -862452214340449994
+    second: bgrd_tree1_0
+  - first:
+      213: -187343892634030254
+    second: bgrd_tree1_1
+  - first:
+      213: -2760363274712402647
+    second: bgrd_tree1_2
+  - first:
+      213: 2119012866303437519
+    second: bgrd_tree1_3
+  - first:
+      213: 3714916542784857223
+    second: bgrd_tree1_4
+  - first:
+      213: -376165452031760842
+    second: bgrd_tree1_5
+  - first:
+      213: -1266946066050204707
+    second: bgrd_tree1_6
+  - first:
+      213: 3282814504304295353
+    second: bgrd_tree1_7
+  - first:
+      213: 6456072938597435788
+    second: bgrd_tree1_8
+  - first:
+      213: 1810120803265462759
+    second: bgrd_tree1_9
+  - first:
+      213: 5079198638529743246
+    second: bgrd_tree1_10
+  - first:
+      213: 4295700482092893901
+    second: bgrd_tree1_11
+  - first:
+      213: 5047860068484487362
+    second: bgrd_tree1_12
+  - first:
+      213: -4171241735357018759
+    second: bgrd_tree1_13
+  - first:
+      213: 4562435099690713325
+    second: bgrd_tree1_14
+  - first:
+      213: 229671503987786223
+    second: bgrd_tree1_15
+  - first:
+      213: 7235367300630821092
+    second: bgrd_tree1_16
+  - first:
+      213: -1358344449169344213
+    second: bgrd_tree1_17
+  - first:
+      213: 5760455964216991817
+    second: bgrd_tree1_18
+  - first:
+      213: -822716733538185940
+    second: bgrd_tree1_19
+  - first:
+      213: 6612596760349899064
+    second: bgrd_tree1_20
+  - first:
+      213: 3130412189192783504
+    second: bgrd_tree1_21
+  - first:
+      213: 3695653752984125056
+    second: bgrd_tree1_22
+  - first:
+      213: 2867301984613476228
+    second: bgrd_tree1_23
+  - first:
+      213: -6925167572735671665
+    second: bgrd_tree1_24
+  - first:
+      213: -5593416466777377875
+    second: bgrd_tree1_25
+  - first:
+      213: -6279383462911479598
+    second: bgrd_tree1_26
+  - first:
+      213: -3471612940775469515
+    second: bgrd_tree1_27
+  - first:
+      213: -3859880936149289854
+    second: bgrd_tree1_28
+  - first:
+      213: 4304275280890534990
+    second: bgrd_tree1_29
+  - first:
+      213: -7028016874396524096
+    second: bgrd_tree1_30
+  - first:
+      213: 6293668912651741121
+    second: bgrd_tree1_31
+  - first:
+      213: -9141466334247317210
+    second: bgrd_tree1_32
+  - first:
+      213: 6175382457598304501
+    second: bgrd_tree1_33
+  - first:
+      213: -1528338373308612909
+    second: bgrd_tree1_34
+  - first:
+      213: -7733073986710318859
+    second: bgrd_tree1_35
+  - first:
+      213: -6221165043378295056
+    second: bgrd_tree1_36
+  - first:
+      213: 6104132589776513085
+    second: bgrd_tree1_37
+  - first:
+      213: -3040213282525256803
+    second: bgrd_tree1_38
+  - first:
+      213: 3019044036393001132
+    second: bgrd_tree1_39
+  - first:
+      213: -4391794089371841655
+    second: bgrd_tree1_40
+  - first:
+      213: -5793492854223959932
+    second: bgrd_tree1_41
+  - first:
+      213: 7370913133753706389
+    second: bgrd_tree1_42
+  - first:
+      213: -7982154985884549791
+    second: bgrd_tree1_43
+  - first:
+      213: -3377385993996234495
+    second: bgrd_tree1_44
+  - first:
+      213: 6680963413781790188
+    second: bgrd_tree1_45
+  - first:
+      213: 4425886123960769774
+    second: bgrd_tree1_46
+  - first:
+      213: 5303472384408030659
+    second: bgrd_tree1_47
+  - first:
+      213: 8895280255443106514
+    second: bgrd_tree1_48
+  - first:
+      213: -5789273176707756182
+    second: bgrd_tree1_49
+  - first:
+      213: 1699422270239995823
+    second: bgrd_tree1_50
+  - first:
+      213: 6897935765963071957
+    second: bgrd_tree1_51
+  - first:
+      213: 4380460409503877337
+    second: bgrd_tree1_52
+  - first:
+      213: -180932509549696159
+    second: bgrd_tree1_53
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 1
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 50
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 1
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 2
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bgrd_tree1_0
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 238
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6390d70d744f704f0800000000000000
+      internalID: -862452214340449994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_1
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 238
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25fa5b4e8bb666df0800000000000000
+      internalID: -187343892634030254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_2
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 238
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 925bbb70a3831b9d0800000000000000
+      internalID: -2760363274712402647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_3
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 238
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcaaf7299fe386d10800000000000000
+      internalID: 2119012866303437519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_4
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 238
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 784e9e6c9e80e8330800000000000000
+      internalID: 3714916542784857223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 188
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6366fdea38797caf0800000000000000
+      internalID: -376165452031760842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_6
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 188
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ddbbf77f347ea6ee0800000000000000
+      internalID: -1266946066050204707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_7
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 188
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bdbe880666ee8d20800000000000000
+      internalID: 3282814504304295353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_8
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 188
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c89cc15c124989950800000000000000
+      internalID: 6456072938597435788
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_9
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 188
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e1ce27b747de1910800000000000000
+      internalID: 1810120803265462759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_10
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 188
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8986314040fc7640800000000000000
+      internalID: 5079198638529743246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_11
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 188
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc60f9034d46d9b30800000000000000
+      internalID: 4295700482092893901
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 138
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c895e1dcf99d0640800000000000000
+      internalID: 5047860068484487362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_13
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 138
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97dc2cbedb5cc16c0800000000000000
+      internalID: -4171241735357018759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_14
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 138
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de0c6d3ec86015f30800000000000000
+      internalID: 4562435099690713325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_15
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 138
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe1c83a1405ff2300800000000000000
+      internalID: 229671503987786223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_16
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 138
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e8b39da930396460800000000000000
+      internalID: 7235367300630821092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_17
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 138
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2933a89be0362de0800000000000000
+      internalID: -1358344449169344213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_18
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 138
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9402f63ed2041ff40800000000000000
+      internalID: 5760455964216991817
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_19
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 138
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2dcfa26d7f1594f0800000000000000
+      internalID: -822716733538185940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_20
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 138
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 839fd8fe7b9a4cb50800000000000000
+      internalID: 6612596760349899064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_21
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 138
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0968369ec45717b20800000000000000
+      internalID: 3130412189192783504
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_22
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 138
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08e35770289994330800000000000000
+      internalID: 3695653752984125056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_23
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 88
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 487a8a0a6f3bac720800000000000000
+      internalID: 2867301984613476228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_24
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 88
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f824901a8ccd4ef90800000000000000
+      internalID: -6925167572735671665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_25
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 88
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da3f9e0db513062b0800000000000000
+      internalID: -5593416466777377875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_26
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 88
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d0f2b492062bd8a0800000000000000
+      internalID: -6279383462911479598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_27
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 88
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53ecd6b7c6a52dfc0800000000000000
+      internalID: -3471612940775469515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_28
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 88
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 284f4853db2fe6ac0800000000000000
+      internalID: -3859880936149289854
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_29
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 88
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4c99fc109bdbbb30800000000000000
+      internalID: 4304275280890534990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_30
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 88
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c1e42683e7777e90800000000000000
+      internalID: -7028016874396524096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_31
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 88
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1c7a680e78a975750800000000000000
+      internalID: 6293668912651741121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_32
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 88
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6211ff47dccf22180800000000000000
+      internalID: -9141466334247317210
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_33
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 88
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f0635960ad53b550800000000000000
+      internalID: 6175382457598304501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_34
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 88
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de7752d8504acae0800000000000000
+      internalID: -1528338373308612909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_35
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 88
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f051504e2a9ea490800000000000000
+      internalID: -7733073986710318859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_36
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 88
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0feeb5caa5bf9a9a0800000000000000
+      internalID: -6221165043378295056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_37
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 88
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d38a383df3c36b450800000000000000
+      internalID: 6104132589776513085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_38
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9368a5902efec5d0800000000000000
+      internalID: -3040213282525256803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_39
+      rect:
+        serializedVersion: 2
+        x: 50
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca067763e8cc5e920800000000000000
+      internalID: 3019044036393001132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_40
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98bc4506b863d03c0800000000000000
+      internalID: -4391794089371841655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_41
+      rect:
+        serializedVersion: 2
+        x: 150
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 488873fb1f0699fa0800000000000000
+      internalID: -5793492854223959932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_42
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 597a6af317eba4660800000000000000
+      internalID: 7370913133753706389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_43
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16dfc34e450b93190800000000000000
+      internalID: -7982154985884549791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_44
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1019976255d1121d0800000000000000
+      internalID: -3377385993996234495
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_45
+      rect:
+        serializedVersion: 2
+        x: 350
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced38dbd3dc87bc50800000000000000
+      internalID: 6680963413781790188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_46
+      rect:
+        serializedVersion: 2
+        x: 400
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eec130bfaf7eb6d30800000000000000
+      internalID: 4425886123960769774
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_47
+      rect:
+        serializedVersion: 2
+        x: 450
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cd0cbcd808b99940800000000000000
+      internalID: 5303472384408030659
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_48
+      rect:
+        serializedVersion: 2
+        x: 500
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2da7b3b5342627b70800000000000000
+      internalID: 8895280255443106514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_49
+      rect:
+        serializedVersion: 2
+        x: 550
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f03aaf7be58afa0800000000000000
+      internalID: -5789273176707756182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_50
+      rect:
+        serializedVersion: 2
+        x: 600
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa7fa050d8f859710800000000000000
+      internalID: 1699422270239995823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_51
+      rect:
+        serializedVersion: 2
+        x: 650
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d1e0b548046abf50800000000000000
+      internalID: 6897935765963071957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_52
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d80425a8858acc30800000000000000
+      internalID: 4380460409503877337
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bgrd_tree1_53
+      rect:
+        serializedVersion: 2
+        x: 750
+        y: 38
+        width: 50
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16b68f757d23d7df0800000000000000
+      internalID: -180932509549696159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 6ea1e55aad8faae499c105c8e4823c7d
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
