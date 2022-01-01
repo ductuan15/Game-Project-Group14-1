@@ -26,6 +26,17 @@ public class HeroKnight : MonoBehaviour {
     private float               m_rollDuration = 8.0f / 14.0f;
     private float               m_rollCurrentTime;
 
+    //Health
+    public int maxHealth = 5;
+    public float timeInvincible = 2.0f;
+    public int health { get { return currentHealth; } }
+    public int currentHealth;
+
+    private bool isInvincible = false;
+    private float invincibleTimer;
+
+    private Animator animator;
+
 
     // Use this for initialization
     void Start ()
@@ -191,5 +202,22 @@ public class HeroKnight : MonoBehaviour {
             // Turn arrow in correct direction
             dust.transform.localScale = new Vector3(m_facingDirection, 1, 1);
         }
+    }
+
+
+    public void ChangeHealth(int amount)
+    {
+        if (amount < 0)
+        {
+            animator.SetTrigger("Hurt");
+            if (isInvincible)
+                return;
+
+            isInvincible = true;
+            invincibleTimer = timeInvincible;
+        }
+
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log("currentHealth: " + currentHealth);
     }
 }
