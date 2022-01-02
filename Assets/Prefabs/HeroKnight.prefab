@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 119224706}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: attackPontRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 838303029}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: attackPointLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   - component: {fileID: 73885877397107113}
   - component: {fileID: 2469505703891872814}
   - component: {fileID: 3763512906509974662}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: GroundSensor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,17 +173,16 @@ MonoBehaviour:
   m_speed: 4
   m_jumpForce: 7.5
   m_rollForce: 6
-  m_noBlood: 0
   attackPointLeft: {fileID: 838303029}
   attackPointRight: {fileID: 119224706}
   attackRange: 0.7
-  heroDamage: 100
+  heroDamage: 200
   monsterLayers:
     serializedVersion: 2
     m_Bits: 128
   maxHealth: 1000
+  maxMana: 300
   timeInvincible: 2
-  currentHealth: 0
 --- !u!95 &1000894967328747718
 Animator:
   serializedVersion: 3
@@ -266,7 +265,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 10
+  m_Mass: 1
   m_LinearDrag: 0.5
   m_AngularDrag: 0.05
   m_GravityScale: 1
