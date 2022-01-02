@@ -11,13 +11,13 @@ public class MonsterController : MonoBehaviour
 
     //Attack
     private float timeSinceAttack = 3.0f;
-    private float timerAttack;
+    private float timerAttack = 0;
 
     public int monsterDamage;
 
     public Transform attackPoint;
     public float attackRange = 0.5f;
-    public float speed = .0f;
+    public float speed = 1.5f;
 
     new Rigidbody2D rigidbody2D;
 
@@ -43,7 +43,7 @@ public class MonsterController : MonoBehaviour
         currentHealth = maxHealth;
         renderer = GetComponent<Renderer>();
         rigidbody2D = GetComponent<Rigidbody2D>();
-        timerAttack = timeSinceAttack;
+    
     }
 
     // Update is called once per frame
@@ -94,7 +94,7 @@ public class MonsterController : MonoBehaviour
     IEnumerator ExampleCoroutine(Collider2D obj)
     {
         yield return new WaitForSeconds(delayTime);
-        
+       obj.GetComponent<HeroKnight>().ChangeHealth(-monsterDamage);
     }
     void Attack()
     {
@@ -107,7 +107,6 @@ public class MonsterController : MonoBehaviour
         foreach (Collider2D obj in hitHeros)
         {
             StartCoroutine(ExampleCoroutine(obj));
-            //obj.GetComponent<HeroKnight>().ChangeHealth(monsterDamage);
         }
     }
 
