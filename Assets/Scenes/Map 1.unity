@@ -8930,6 +8930,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &508533028 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 997676357, guid: 569cc9a500815ac40b7f726a95cf1010, type: 3}
+  m_PrefabInstance: {fileID: 3181038011888059049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &508622093
 GameObject:
   m_ObjectHideFlags: 0
@@ -17574,6 +17579,36 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4106967144069191872, guid: 7fc30cd74f5aa724387df7546e0f3d5b, type: 3}
   m_PrefabInstance: {fileID: 4106967144801069267}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1432171505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1432171506}
+  m_Layer: 7
+  m_Name: attackPointLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1432171506
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1432171505}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.15, y: 0.1, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1593572896}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1442382817
 GameObject:
   m_ObjectHideFlags: 0
@@ -19726,6 +19761,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1593572896 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1047684718095620026, guid: 569cc9a500815ac40b7f726a95cf1010, type: 3}
+  m_PrefabInstance: {fileID: 3181038011888059049}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1595815815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8012655433164689460, guid: c3b86686583e114479cc11b139a8a401, type: 3}
@@ -27669,6 +27709,22 @@ PrefabInstance:
       propertyPath: hero
       value: 
       objectReference: {fileID: 1954800926}
+    - target: {fileID: 309990140, guid: 569cc9a500815ac40b7f726a95cf1010, type: 3}
+      propertyPath: attackPointLeft
+      value: 
+      objectReference: {fileID: 1432171506}
+    - target: {fileID: 309990140, guid: 569cc9a500815ac40b7f726a95cf1010, type: 3}
+      propertyPath: attackPointRight
+      value: 
+      objectReference: {fileID: 508533028}
+    - target: {fileID: 997676356, guid: 569cc9a500815ac40b7f726a95cf1010, type: 3}
+      propertyPath: m_Name
+      value: attackPointRight
+      objectReference: {fileID: 0}
+    - target: {fileID: 997676357, guid: 569cc9a500815ac40b7f726a95cf1010, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.15
+      objectReference: {fileID: 0}
     - target: {fileID: 1047684718095620026, guid: 569cc9a500815ac40b7f726a95cf1010, type: 3}
       propertyPath: m_RootOrder
       value: 8

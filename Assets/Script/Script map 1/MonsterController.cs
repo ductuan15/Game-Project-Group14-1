@@ -15,7 +15,9 @@ public class MonsterController : MonoBehaviour
 
     public int monsterDamage;
 
-    public Transform attackPoint;
+    //Attack Point
+    public Transform attackPointRight;
+    public Transform attackPointLeft;
     public float attackRange = 0.5f;
     public float speed = 1.5f;
 
@@ -85,7 +87,6 @@ public class MonsterController : MonoBehaviour
         else
         {
             m_animator.SetBool("Run", false);
-
         }
 
     }
@@ -98,10 +99,16 @@ public class MonsterController : MonoBehaviour
     }
     void Attack()
     {
+        Collider2D[] hitHeros;
         m_animator.SetTrigger("Attack1");
 
-
-        Collider2D[] hitHeros = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, heroLayers);
+        if(direction.x > 0){
+            hitHeros = Physics2D.OverlapCircleAll(attackPointRight.position, attackRange, heroLayers);
+        }
+        else{
+            hitHeros = Physics2D.OverlapCircleAll(attackPointLeft.position, attackRange, heroLayers);
+        }
+        
 
 
         foreach (Collider2D obj in hitHeros)
@@ -112,9 +119,12 @@ public class MonsterController : MonoBehaviour
 
     void OnDrawGizmosSelected()
     {
-        if (attackPoint == null)
+        if (attackPointRight == null)
             return;
-        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+        if (attackPointLeft == null)
+            return;
+        Gizmos.DrawWireSphere(attackPointRight.position, attackRange);
+        Gizmos.DrawWireSphere(attackPointLeft.position, attackRange);
     }
 
     public void ChangeHealth(int amount)
