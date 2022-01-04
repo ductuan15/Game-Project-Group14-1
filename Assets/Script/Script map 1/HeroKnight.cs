@@ -258,8 +258,6 @@ public class HeroKnight : MonoBehaviour
         }
 
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log("CurrentHealth: " + currentHealth);
-
         UIHealthBar.instance.SetValueHealth(currentHealth / (float)maxHealth);
 
         //Death

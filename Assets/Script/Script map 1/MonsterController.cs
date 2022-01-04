@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
-    public Animator m_animator;
 
-    //Direction
+    public Animator m_animator;
     private Vector2 direction;
+    public float positionY = 1;
 
     //Attack
     private float timeSinceAttack = 3.0f;
     private float timerAttack = 0;
-
     public int monsterDamage;
+    public float monsterDistance = 0;
 
     //Attack Point
     public Transform attackPointRight;
@@ -21,11 +21,11 @@ public class MonsterController : MonoBehaviour
     public float attackRange = 0.5f;
     public float speed = 1.5f;
 
+    //Check visible
     new Rigidbody2D rigidbody2D;
-
     new Renderer renderer;
 
-
+    //Attack
     public LayerMask heroLayers;
     public GameObject hero;
     public float delayTime = 0.4f;
@@ -34,6 +34,7 @@ public class MonsterController : MonoBehaviour
     public int maxHealth = 1000;
     public int health { get { return currentHealth; } }
     private int currentHealth;
+
 
 
     //public float timeInvincible = 1.0f;
@@ -45,7 +46,6 @@ public class MonsterController : MonoBehaviour
         currentHealth = maxHealth;
         renderer = GetComponent<Renderer>();
         rigidbody2D = GetComponent<Rigidbody2D>();
-    
     }
 
     // Update is called once per frame
@@ -55,10 +55,15 @@ public class MonsterController : MonoBehaviour
         Vector2 heroPosition = hero.transform.position;
         Vector2 position = transform.position;
         direction = (heroPosition - position).normalized;
+        // flip picture depending on direction of monster
+        if (direction.x <= 0)     
+            GetComponent<SpriteRenderer>().flipX = true;
+        else
+            GetComponent<SpriteRenderer>().flipX = false;
         // Check monster in camera
         if (renderer.isVisible)
         {
-            if (Vector2.Distance(heroPosition, position) <= 2.2f)
+            if (Vector2.Distance(heroPosition, position) <= monsterDistance)
             {
                 m_animator.SetBool("Run", false);
                 if (timerAttack <= 0)
@@ -73,15 +78,6 @@ public class MonsterController : MonoBehaviour
                 m_animator.SetBool("Run", true);
                 position.x += speed * Time.deltaTime * direction.x;
                 transform.position = position;
-                if (direction.x <= 0)
-                // flip picture depending on direction of monster
-                {
-                    GetComponent<SpriteRenderer>().flipX = true;
-                }
-                else
-                {
-                    GetComponent<SpriteRenderer>().flipX = false;
-                }
             }
         }
         else
@@ -134,6 +130,7 @@ public class MonsterController : MonoBehaviour
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
         Debug.Log("CurrentHealth: " + currentHealth);
 
+        transform.GetChild(2).GetComponent<MonsterHealthBar>().setSize(currentHealth / (float)maxHealth);
         //Death
         if (currentHealth == 0)
         {
@@ -144,6 +141,10 @@ public class MonsterController : MonoBehaviour
     private void Death()
     {
         m_animator.SetBool("Death", true);
+        foreach (Transform child in transform) {
+            GameObject.Destroy(child.gameObject);
+        }
         this.enabled = false;
     }
+
 }
