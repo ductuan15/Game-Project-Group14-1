@@ -126,11 +126,11 @@ public class MonsterController : MonoBehaviour
     public void ChangeHealth(int amount)
     {
         m_animator.SetTrigger("TakeHit");
-
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log("CurrentHealth: " + currentHealth);
 
+        //UIHealthBar
         transform.GetChild(2).GetComponent<MonsterHealthBar>().setSize(currentHealth / (float)maxHealth);
+
         //Death
         if (currentHealth == 0)
         {
@@ -141,6 +141,7 @@ public class MonsterController : MonoBehaviour
     private void Death()
     {
         m_animator.SetBool("Death", true);
+        //Disable object
         foreach (Transform child in transform) {
             GameObject.Destroy(child.gameObject);
         }
