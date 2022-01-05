@@ -35,6 +35,8 @@ public class MonsterController : MonoBehaviour
     public int health { get { return currentHealth; } }
     private int currentHealth;
 
+    private bool isCanMove = true;
+
 
 
     //public float timeInvincible = 1.0f;
@@ -56,28 +58,29 @@ public class MonsterController : MonoBehaviour
         Vector2 position = transform.position;
         direction = (heroPosition - position).normalized;
         // flip picture depending on direction of monster
-        if (direction.x <= 0)     
+        if (direction.x <= 0)
             GetComponent<SpriteRenderer>().flipX = true;
         else
             GetComponent<SpriteRenderer>().flipX = false;
         // Check monster in camera
         if (renderer.isVisible)
         {
-            if (Vector2.Distance(heroPosition, position) <= monsterDistance)
-            {
-                m_animator.SetBool("Run", false);
-                if (timerAttack <= 0)
-                {
-                    Attack();
-                    direction = Vector2.zero;
-                    timerAttack = timeSinceAttack;
-                }
-            }
-            else
+            if (Vector2.Distance(heroPosition, position) >= monsterDistance && isCanMove)
             {
                 m_animator.SetBool("Run", true);
                 position.x += speed * Time.deltaTime * direction.x;
                 transform.position = position;
+            }
+            else
+            {
+                m_animator.SetBool("Run", false);
+                if (timerAttack <= 0)
+                {
+                    m_animator.SetTrigger("Attack1");
+                    direction = Vector2.zero;
+                    timerAttack = timeSinceAttack;
+                }
+
             }
         }
         else
@@ -88,28 +91,25 @@ public class MonsterController : MonoBehaviour
     }
 
     //delay attack
-    IEnumerator ExampleCoroutine(Collider2D obj)
-    {
-        yield return new WaitForSeconds(delayTime);
-       obj.GetComponent<HeroKnight>().ChangeHealth(-monsterDamage);
-    }
     void Attack()
     {
         Collider2D[] hitHeros;
-        m_animator.SetTrigger("Attack1");
 
-        if(direction.x > 0){
+
+        if (direction.x > 0)
+        {
             hitHeros = Physics2D.OverlapCircleAll(attackPointRight.position, attackRange, heroLayers);
         }
-        else{
+        else
+        {
             hitHeros = Physics2D.OverlapCircleAll(attackPointLeft.position, attackRange, heroLayers);
         }
-        
+
 
 
         foreach (Collider2D obj in hitHeros)
         {
-            StartCoroutine(ExampleCoroutine(obj));
+            obj.GetComponent<HeroKnight>().ChangeHealth(-monsterDamage);
         }
     }
 
@@ -142,10 +142,19 @@ public class MonsterController : MonoBehaviour
     {
         m_animator.SetBool("Death", true);
         //Disable object
-        foreach (Transform child in transform) {
+        foreach (Transform child in transform)
+        {
             GameObject.Destroy(child.gameObject);
         }
         this.enabled = false;
     }
-
+    void setCanNotMove()
+    {
+        isCanMove = false;
+        Debug.Log("Stop");
+    }
+    void setCanMove()
+    {
+        isCanMove = true;
+    }
 }

@@ -28718,6 +28718,14 @@ PrefabInstance:
       propertyPath: hero
       value: 
       objectReference: {fileID: 1954800926}
+    - target: {fileID: 353611913, guid: 878473d1fc82186479c8ae53859f3fb5, type: 3}
+      propertyPath: speed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 353611913, guid: 878473d1fc82186479c8ae53859f3fb5, type: 3}
+      propertyPath: monsterDistance
+      value: 2.2
+      objectReference: {fileID: 0}
     - target: {fileID: 6184048227824359135, guid: 878473d1fc82186479c8ae53859f3fb5, type: 3}
       propertyPath: m_Name
       value: Goblin
@@ -29299,6 +29307,10 @@ PrefabInstance:
     - target: {fileID: 6724863427449220476, guid: 2c2cfe9f31b7e5d4197887b62d294939, type: 3}
       propertyPath: m_Name
       value: Mushroom
+      objectReference: {fileID: 0}
+    - target: {fileID: 6724863427449220476, guid: 2c2cfe9f31b7e5d4197887b62d294939, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7843582768933507872, guid: 2c2cfe9f31b7e5d4197887b62d294939, type: 3}
       propertyPath: m_RootOrder
