@@ -5,6 +5,8 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     Rigidbody2D rigidbody;
+
+    public GameObject pauseMenu;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,5 +24,10 @@ public class CameraController : MonoBehaviour
         pos.x += 1f * horizon;
         pos.y += 1f * vertical;
         rigidbody.MovePosition(pos);
+        if(Input.GetKey(KeyCode.Escape))
+        {
+            GameManager._instance.pause();
+            pauseMenu.SetActive(true);
+        }
     }
 }
