@@ -151,7 +151,6 @@ public class MonsterController : MonoBehaviour
     void setCanNotMove()
     {
         isCanMove = false;
-        Debug.Log("Stop");
     }
     void setCanMove()
     {

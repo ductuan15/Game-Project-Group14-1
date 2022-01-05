@@ -22,6 +22,7 @@ public class HeroKnight : MonoBehaviour
     private float m_rollCurrentTime;
 
     //========================Attack========================
+    [Header("Attack")]
     public Transform attackPointLeft;
     public Transform attackPointRight;
     public float attackRange = 0.5f;
@@ -29,6 +30,7 @@ public class HeroKnight : MonoBehaviour
     public LayerMask monsterLayers;
 
     //========================Health========================
+    [Header("Health and Mana")]
     public int maxHealth = 1000;
     public int health { get { return currentHealth; } }
     private int currentHealth;
@@ -50,6 +52,8 @@ public class HeroKnight : MonoBehaviour
     private float invincibleTimer;
 
     //========================Skill of hero========================
+    [Header("Skill of hero")]
+    private AbilitySystem abilitySystem;
     [SerializeField] ParticleSystem shieldEffect = null;
     public float skill2CountDownTime = 20.0f;
     public float skill2Effective = 7.0f;
@@ -81,17 +85,17 @@ public class HeroKnight : MonoBehaviour
         if (invincibleTimer < 0)
             isInvincible = false;
 
-        // //Healing and mana recovery
-        // healingTime -= Time.deltaTime;
-        // if (healingTime <= 0)
-        // {
-        //     currentHealth = Mathf.Clamp(currentHealth + healing, 0, maxHealth);
-        //     UIHealthBar.instance.SetValueHealth(currentHealth / (float)maxHealth);
+        //Healing and mana recovery
+        healingTime -= Time.deltaTime;
+        if (healingTime <= 0)
+        {
+            currentHealth = Mathf.Clamp(currentHealth + healing, 0, maxHealth);
+            UIHealthBar.instance.SetValueHealth(currentHealth / (float)maxHealth);
 
-        //     currentMana = Mathf.Clamp(currentMana + manaRecovery, 0, maxMana);
-        //     UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
-        //     healingTime = 1;
-        // }
+            currentMana = Mathf.Clamp(currentMana + manaRecovery, 0, maxMana);
+            UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
+            healingTime = 1;
+        }
 
 
         // Increase timer that controls attack combo
@@ -304,28 +308,32 @@ public class HeroKnight : MonoBehaviour
     }
 
     //========================Skill of hero========================
-    //Delay skill 2 function
-    IEnumerator returnNormalStrengh(float time)
-    {
-        Debug.Log(time);
-        yield return new WaitForSeconds(time);
-        //Normail strength
-        shieldEffect.Stop();
-        healing -= 10;
-        manaRecovery -= 5;
-        heroArmor -= 10;
-        heroDamage -= 50; 
-    }
+    //Skill 1: Slashing Wind
+    //Skill 2: Shield Buff Effective
     public void skill2(){
         shieldEffect.Play();
         skill2Timer = skill2CountDownTime;
         isCountdown2 = true;
+
+        currentMana = Mathf.Clamp(currentMana -80, 0, maxMana);
+        UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
+
         //Increased strength
         healing += 10;
         manaRecovery += 5;
         heroArmor += 10;
         heroDamage += 50; 
-        Debug.Log("skill2 " + skill2Effective);
-        returnNormalStrengh(skill2Effective);
+
+        Invoke("returnNormalStrengh", 7);//Call returnNormalStrengh after 7s to let the hero's power return to its original state 
     }
+    private void returnNormalStrengh()
+    {
+        shieldEffect.Stop();
+        //Normail strength
+        healing -= 10;
+        manaRecovery -= 5;
+        heroArmor -= 10;
+        heroDamage -= 50; 
+    }
+    //Skill 3: Ultimate
 }
