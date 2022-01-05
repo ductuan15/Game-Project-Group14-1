@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Art/Map/Map 3/Scenes/Thaleah_Demo.unity
     guid: 180143f4a57f2124dae57257c95bc10a
   - enabled: 1
-    path: Assets/Art/Map/Map 3/Scenes/Map 3.unity
+    path: Assets/Scenes/Map 3.unity
     guid: d3d673a5fd497f6408b9435d67f0ee47
   m_configObjects: {}
