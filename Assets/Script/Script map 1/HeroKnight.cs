@@ -3,16 +3,15 @@ using System.Collections;
 
 public class HeroKnight : MonoBehaviour
 {
-
+    //========================Control Hero========================
     [SerializeField] float m_speed = 4.0f;
     [SerializeField] float m_jumpForce = 7.5f;
     [SerializeField] float m_rollForce = 6.0f;
-
     private Animator m_animator;
     private Rigidbody2D m_body2d;
     private Sensor_HeroKnight m_groundSensor;
 
-    //Parameters animation
+    //========================Parameters animation========================
     private bool m_grounded = false;
     private bool m_rolling = false;
     private int m_facingDirection = 1;
@@ -22,41 +21,55 @@ public class HeroKnight : MonoBehaviour
     private float m_rollDuration = 8.0f / 14.0f;
     private float m_rollCurrentTime;
 
-    //Attack
+    //========================Attack========================
     public Transform attackPointLeft;
     public Transform attackPointRight;
     public float attackRange = 0.5f;
     public int heroDamage = 100;
     public LayerMask monsterLayers;
 
-    //Health
+    //========================Health========================
     public int maxHealth = 1000;
     public int health { get { return currentHealth; } }
     private int currentHealth;
-    //Mana
+    //========================Mana========================
     public int maxMana = 300;
     public int mana { get { return currentMana; } }
     private int currentMana;
+    //========================Armor========================
+    public int heroArmor = 20;
 
-    //Healing (Heal 10 health in 1 second)
+    //========================Healing and Recovery Mana========================
     private float healingTime = 1;
     private int healing = 5;
     private int manaRecovery = 1;
 
-    //Invincible
+    //========================Hero Invincible========================
     public float timeInvincible = 1.0f;
     private bool isInvincible = false;
     private float invincibleTimer;
 
-
+    //========================Skill of hero========================
+    [SerializeField] ParticleSystem shieldEffect = null;
+    public float skill2CountDownTime = 20.0f;
+    public float skill2Effective = 7.0f;
+    private float skill2Timer;
+    private bool isCountdown2 = false;
 
     // Use this for initialization
     void Start()
     {
+        //Skill and particle
+        shieldEffect.Stop();
+
+        //Health and mana
         currentHealth = maxHealth;
         currentMana = maxMana;
+
+        //Animation
         m_animator = GetComponent<Animator>();
         m_body2d = GetComponent<Rigidbody2D>();
+
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_HeroKnight>();
     }
 
@@ -68,17 +81,17 @@ public class HeroKnight : MonoBehaviour
         if (invincibleTimer < 0)
             isInvincible = false;
 
-        //Healing and mana recovery
-        healingTime -= Time.deltaTime;
-        if (healingTime <= 0)
-        {
-            currentHealth = Mathf.Clamp(currentHealth + healing, 0, maxHealth);
-            UIHealthBar.instance.SetValueHealth(currentHealth / (float)maxHealth);
+        // //Healing and mana recovery
+        // healingTime -= Time.deltaTime;
+        // if (healingTime <= 0)
+        // {
+        //     currentHealth = Mathf.Clamp(currentHealth + healing, 0, maxHealth);
+        //     UIHealthBar.instance.SetValueHealth(currentHealth / (float)maxHealth);
 
-            currentMana = Mathf.Clamp(currentMana + manaRecovery, 0, maxMana);
-            UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
-            healingTime = 1;
-        }
+        //     currentMana = Mathf.Clamp(currentMana + manaRecovery, 0, maxMana);
+        //     UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
+        //     healingTime = 1;
+        // }
 
 
         // Increase timer that controls attack combo
@@ -198,12 +211,24 @@ public class HeroKnight : MonoBehaviour
             if (m_delayToIdle < 0)
                 m_animator.SetInteger("AnimState", 0);
         }
+
+        //Skill of hero
+        skill2Timer = Mathf.Clamp(skill2Timer - Time.deltaTime, -2, skill2CountDownTime);
+        if(skill2Timer <= 0){
+            isCountdown2 = false;
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha2)){
+            if(isCountdown2 == true){
+                Debug.Log("Skill2 is countdown!");
+            }else
+                skill2();
+        }
     }
 
     // Animation Events
 
 
-    //Other function
+    //========================Attack and health========================
     void Attack()
     {
         Collider2D[] hitHeros;
@@ -233,7 +258,6 @@ public class HeroKnight : MonoBehaviour
 
         }
     }
-
     void OnDrawGizmosSelected()
     {
         if (attackPointLeft == null)
@@ -246,6 +270,7 @@ public class HeroKnight : MonoBehaviour
     }
     public void ChangeHealth(int amount)
     {
+        // if hero rolling, he can dodge
         if (amount < 0 && !m_rolling)
         {
             //If character is invincible, it can't get damaged
@@ -255,9 +280,14 @@ public class HeroKnight : MonoBehaviour
 
             isInvincible = true;
             invincibleTimer = timeInvincible;
-        }
+            //Damage is reduced by armor 
+            int temp = Mathf.Clamp(amount + heroArmor, -maxHealth, 0);
+            currentHealth = Mathf.Clamp(currentHealth + temp, 0, maxHealth);
 
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        }
+        else
+            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+
         UIHealthBar.instance.SetValueHealth(currentHealth / (float)maxHealth);
 
         //Death
@@ -270,6 +300,32 @@ public class HeroKnight : MonoBehaviour
     private void Death()
     {
         m_animator.SetTrigger("Death");
+        this.enabled = false;
+    }
 
+    //========================Skill of hero========================
+    //Delay skill 2 function
+    IEnumerator returnNormalStrengh(float time)
+    {
+        Debug.Log(time);
+        yield return new WaitForSeconds(time);
+        //Normail strength
+        shieldEffect.Stop();
+        healing -= 10;
+        manaRecovery -= 5;
+        heroArmor -= 10;
+        heroDamage -= 50; 
+    }
+    public void skill2(){
+        shieldEffect.Play();
+        skill2Timer = skill2CountDownTime;
+        isCountdown2 = true;
+        //Increased strength
+        healing += 10;
+        manaRecovery += 5;
+        heroArmor += 10;
+        heroDamage += 50; 
+        Debug.Log("skill2 " + skill2Effective);
+        returnNormalStrengh(skill2Effective);
     }
 }

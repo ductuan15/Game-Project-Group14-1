@@ -12,7 +12,7 @@ public class MonsterController : MonoBehaviour
     //Attack
     private float timeSinceAttack = 3.0f;
     private float timerAttack = 0;
-    public int monsterDamage;
+    public int monsterDamage = 100;
     public float monsterDistance = 0;
 
     //Attack Point

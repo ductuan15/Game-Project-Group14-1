@@ -12,13 +12,13 @@ public class AbilitySystem : MonoBehaviour
     bool isCountdown1 = false;
 
     //Skill 2
-    [Header("Skill1")]
+    [Header("Skill2")]
     public Image skill2Image;
-    public float countdown2 = 7f;
+    public float countdown2 = 20.0f;
     bool isCountdown2 = false;
 
     //Skill 3
-    [Header("Skill1")]
+    [Header("Skill3")]
     public Image skill3Image;
     public float countdown3 = 9f;
     bool isCountdown3 = false;
@@ -66,27 +66,27 @@ public class AbilitySystem : MonoBehaviour
         }
     }
 
-    private void Skill1(){
+    public void Skill1(){
         if(isCountdown1 == true){
-            Debug.Log("Sword Art is countdown!");
+            return;
         }
         else{
             isCountdown1 = true;
             skill1Image.fillAmount = 0;
         }
     }
-    private void Skill2(){
+    public void Skill2(){
         if(isCountdown2 == true){
-            Debug.Log("Shield is countdown!");
+            return;
         }
         else{
             isCountdown2 = true;
             skill2Image.fillAmount = 0;
         }
     }
-    private void Skill3(){
+    public void Skill3(){
         if(isCountdown3 == true){
-            Debug.Log("Ultimate is countdown!");
+            return;
         }
         else{
             isCountdown3 = true;
