@@ -59,10 +59,16 @@ public class HeroKnight : MonoBehaviour
     public float skill2Effective = 7.0f;
     private float skill2Timer;
     private bool isCountdown2 = false;
+    //========================Display text========================
+    public float displayTime = 2.0f;
+    public GameObject skill2DialogBox;
+    float timerDisplay;
 
     // Use this for initialization
     void Start()
     {
+        skill2DialogBox.SetActive(false);
+        timerDisplay = -1;
         //Skill and particle
         shieldEffect.Stop();
 
@@ -80,6 +86,20 @@ public class HeroKnight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //========================Display text========================
+        if (timerDisplay >= 0)
+        {
+            timerDisplay -= Time.deltaTime;
+            if (timerDisplay < 0)
+            {
+                skill2DialogBox.SetActive(false);
+                skill2DialogBox.transform.position = new Vector3(701, 210, 0);
+            }
+        
+        }
+        if(skill2DialogBox.activeSelf == true){
+            skill2DialogBox.transform.position += new Vector3(0, m_speed * 10 * Time.deltaTime, 0);
+        }
         //Hero invincible
         invincibleTimer -= Time.deltaTime;
         if (invincibleTimer < 0)
@@ -224,6 +244,7 @@ public class HeroKnight : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha2)){
             if(isCountdown2 == true){
                 Debug.Log("Skill2 is countdown!");
+                DisplayDialog();
             }else
                 skill2();
         }
@@ -336,4 +357,11 @@ public class HeroKnight : MonoBehaviour
         heroDamage -= 50; 
     }
     //Skill 3: Ultimate
+
+    //========================Display text function========================
+    public void DisplayDialog()
+    {
+        timerDisplay = displayTime;
+        skill2DialogBox.SetActive(true);
+    }
 }
