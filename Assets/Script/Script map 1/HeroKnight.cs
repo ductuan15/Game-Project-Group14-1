@@ -3,6 +3,10 @@ using System.Collections;
 
 public class HeroKnight : MonoBehaviour
 {
+    //========================Menu========================
+    public GameObject pauseMenu;
+
+
     //========================Control Hero========================
     [SerializeField] float m_speed = 4.0f;
     [SerializeField] float m_jumpForce = 7.5f;
@@ -226,6 +230,11 @@ public class HeroKnight : MonoBehaviour
                 Debug.Log("Skill2 is countdown!");
             }else
                 skill2();
+        }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            GameManager._instance.pause();
+            pauseMenu.SetActive(true);
         }
     }
 

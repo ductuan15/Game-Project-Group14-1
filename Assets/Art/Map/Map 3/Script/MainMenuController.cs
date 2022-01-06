@@ -8,7 +8,7 @@ public class MainMenuController : MonoBehaviour
 
     public GameObject optionMenu;
     // player for save
-    public GameObject ruby;
+  
 
     // Start is called before the first frame update
 
