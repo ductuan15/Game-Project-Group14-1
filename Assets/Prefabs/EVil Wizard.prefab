@@ -73,6 +73,7 @@ GameObject:
   - component: {fileID: 6988639400244337192}
   - component: {fileID: 1415478458580697524}
   - component: {fileID: 750235542746138112}
+  - component: {fileID: 1959860768}
   m_Layer: 7
   m_Name: EVil Wizard
   m_TagString: Untagged
@@ -188,7 +189,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &750235542746138112
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -215,6 +216,34 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.16869105, y: 0.41222292}
   m_EdgeRadius: 0
+--- !u!114 &1959860768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6988639400244337195}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e746c3047d235d4487d7a4857c35d95, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_animator: {fileID: 6988639400244337192}
+  positionY: 1
+  monsterDamage: 100
+  monsterDistance: 1.32
+  attackPointRight: {fileID: 1483654446856372123}
+  attackPointLeft: {fileID: 1483654447226180283}
+  attackRange: 0.93
+  speed: 1.5
+  heroLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  hero: {fileID: 0}
+  delayTime: 0.4
+  attackEffect: {fileID: 1483654446160292750}
+  maxHealth: 1000
+  projectilePrefab: {fileID: 4918464069962614837, guid: f39a68851d6e54b49b0b005eaa0198d4, type: 3}
 --- !u!1001 &565804838741351791
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -275,6 +304,11 @@ PrefabInstance:
 --- !u!4 &1483654446160292748 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1390727570478085859, guid: fb22003833a148b489fdb70ae962b678, type: 3}
+  m_PrefabInstance: {fileID: 565804838741351791}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &1483654446160292750 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1390727570478085857, guid: fb22003833a148b489fdb70ae962b678, type: 3}
   m_PrefabInstance: {fileID: 565804838741351791}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1483654446075728684
