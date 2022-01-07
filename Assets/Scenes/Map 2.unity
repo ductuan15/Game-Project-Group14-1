@@ -25134,23 +25134,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 1965470549729004503, guid: c058a340d28de4a4d977a98d81fb0364, type: 3}
   m_PrefabInstance: {fileID: 645698923}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &323399597674367843 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8463658234600496028, guid: 1ebfbd96082a84b4f83470b7983234b0, type: 3}
-  m_PrefabInstance: {fileID: 8144766978810089727}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &323399597674367844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 323399597674367843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c922a88a74960794a987d77831ac7d8b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1483654447181123195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25165,10 +25148,6 @@ PrefabInstance:
     - target: {fileID: 6988639400244337195, guid: 042cc5c656ecabb4e9769355e3c3775f, type: 3}
       propertyPath: m_Name
       value: EVil Wizard
-      objectReference: {fileID: 0}
-    - target: {fileID: 6988639400244337195, guid: 042cc5c656ecabb4e9769355e3c3775f, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6988639400244337198, guid: 042cc5c656ecabb4e9769355e3c3775f, type: 3}
       propertyPath: m_RootOrder
@@ -25538,6 +25517,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 323399597674367844, guid: 1ebfbd96082a84b4f83470b7983234b0, type: 3}
+      propertyPath: hero
+      value: 
+      objectReference: {fileID: 1916961846}
     - target: {fileID: 8463658234600496025, guid: 1ebfbd96082a84b4f83470b7983234b0, type: 3}
       propertyPath: m_RootOrder
       value: 15
@@ -25585,18 +25568,6 @@ PrefabInstance:
     - target: {fileID: 8463658234600496028, guid: 1ebfbd96082a84b4f83470b7983234b0, type: 3}
       propertyPath: m_Name
       value: Martial Hero
-      objectReference: {fileID: 0}
-    - target: {fileID: 8463658234600496028, guid: 1ebfbd96082a84b4f83470b7983234b0, type: 3}
-      propertyPath: m_Layer
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 8463658234600496030, guid: 1ebfbd96082a84b4f83470b7983234b0, type: 3}
-      propertyPath: m_FlipX
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8463658234600496030, guid: 1ebfbd96082a84b4f83470b7983234b0, type: 3}
-      propertyPath: m_SortingOrder
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ebfbd96082a84b4f83470b7983234b0, type: 3}
