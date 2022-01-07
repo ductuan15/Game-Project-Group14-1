@@ -80,7 +80,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6988639400244337198
 Transform:
   m_ObjectHideFlags: 0
@@ -242,7 +242,6 @@ MonoBehaviour:
   hero: {fileID: 0}
   delayTime: 0.4
   attackEffect: {fileID: 1483654446160292750}
-  maxHealth: 1000
   projectilePrefab: {fileID: 4918464069962614837, guid: f39a68851d6e54b49b0b005eaa0198d4, type: 3}
 --- !u!1001 &565804838741351791
 PrefabInstance:
