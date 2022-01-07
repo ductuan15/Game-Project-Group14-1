@@ -6,12 +6,12 @@ public class MonsterController : MonoBehaviour
 {
 
     public Animator m_animator;
-    protected Vector2 direction;
+    private Vector2 direction;
     public float positionY = 1;
 
     //Attack
-    protected float timeSinceAttack = 3.0f;
-    protected float timerAttack = 0;
+    private float timeSinceAttack = 3.0f;
+    private float timerAttack = 0;
     public int monsterDamage = 100;
     public float monsterDistance = 0;
 
@@ -22,16 +22,13 @@ public class MonsterController : MonoBehaviour
     public float speed = 1.5f;
 
     //Check visible
-    protected new Rigidbody2D rigidbody2D;
-    protected new Renderer renderer;
+    new Rigidbody2D rigidbody2D;
+    new Renderer renderer;
 
     //Attack
     public LayerMask heroLayers;
     public GameObject hero;
     public float delayTime = 0.4f;
-
-    public ParticleSystem attackEffect;
-
 
     //Health
     public int maxHealth = 1000;
@@ -79,7 +76,6 @@ public class MonsterController : MonoBehaviour
                 m_animator.SetBool("Run", false);
                 if (timerAttack <= 0)
                 {
-                    attackEffect.Play();
                     m_animator.SetTrigger("Attack1");
                     direction = Vector2.zero;
                     timerAttack = timeSinceAttack;
@@ -95,7 +91,7 @@ public class MonsterController : MonoBehaviour
     }
 
     //delay attack
-    protected virtual void Attack()
+    void Attack()
     {
         Collider2D[] hitHeros;
 

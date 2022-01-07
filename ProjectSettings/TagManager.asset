@@ -14,7 +14,7 @@ TagManager:
   - Hero Knight
   - Monster
   - Sub
-  - Fireball
+  - 
   - 
   - 
   - 
@@ -38,9 +38,6 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Monster
-    uniqueID: 2938896151
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
