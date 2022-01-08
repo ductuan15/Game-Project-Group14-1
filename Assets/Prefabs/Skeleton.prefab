@@ -188,7 +188,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1000
+  m_Mass: 10
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 1
@@ -241,8 +241,7 @@ MonoBehaviour:
     m_Bits: 64
   hero: {fileID: 0}
   delayTime: 0.4
-  attackEffect: {fileID: 0}
-  maxHealth: 1000
+  attackEffect: {fileID: 6948736198973420009}
 --- !u!1 &2066269983674823156
 GameObject:
   m_ObjectHideFlags: 0

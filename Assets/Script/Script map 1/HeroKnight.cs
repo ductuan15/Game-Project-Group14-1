@@ -97,7 +97,7 @@ public class HeroKnight : MonoBehaviour
             if (timerDisplay < 0)
             {
                 skill2DialogBox.SetActive(false);
-                skill2DialogBox.transform.position = new Vector3(701, 210, 0);
+                skill2DialogBox.transform.position = new Vector3(124.5f, 42, 0);
             }
         
         }

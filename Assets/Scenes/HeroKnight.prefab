@@ -69,6 +69,8 @@ MonoBehaviour:
   shieldEffect: {fileID: 5155123989313084878}
   skill2CountDownTime: 20
   skill2Effective: 7
+  displayTime: 2
+  skill2DialogBox: {fileID: 0}
 --- !u!95 &4824744139816476450
 Animator:
   serializedVersion: 3
