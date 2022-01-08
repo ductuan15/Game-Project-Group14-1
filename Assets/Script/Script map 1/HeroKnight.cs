@@ -64,9 +64,15 @@ public class HeroKnight : MonoBehaviour
     private float skill2Timer;
     private bool isCountdown2 = false;
     //========================Display text========================
+    [Header("Skill 1: Slashing Wind")]
+    [Header("Skill 2: Shield Effective")]
+    
     public float displayTime = 2.0f;
     public GameObject skill2DialogBox;
     float timerDisplay;
+    [Header("Skill 3: Ultimate")]
+    [Header("Skill: Block dame")]
+    private bool isBlock = false;
 
     // Use this for initialization
     void Start()
@@ -90,6 +96,24 @@ public class HeroKnight : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //========================Skill of hero========================
+        //Skill 2: Shield Effective
+        skill2Timer = Mathf.Clamp(skill2Timer - Time.deltaTime, -2, skill2CountDownTime);
+        if(skill2Timer <= 0){
+            isCountdown2 = false;
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha2)){
+            if(isCountdown2 == true){
+                Debug.Log("Skill2 is countdown!");
+                DisplayDialog2();
+            }else
+                skill2();
+        }
+        
+        //Skill: Block dame
+        if(Input.GetKeyDown(KeyCode.Q)){
+                Block();
+        }
         //========================Display text========================
         if (timerDisplay >= 0)
         {
@@ -97,19 +121,19 @@ public class HeroKnight : MonoBehaviour
             if (timerDisplay < 0)
             {
                 skill2DialogBox.SetActive(false);
-                skill2DialogBox.transform.position = new Vector3(701, 210, 0);
+                skill2DialogBox.transform.position = new Vector3(124.5f, 42, 0);
             }
         
         }
         if(skill2DialogBox.activeSelf == true){
             skill2DialogBox.transform.position += new Vector3(0, m_speed * 10 * Time.deltaTime, 0);
         }
-        //Hero invincible
+        //========================Hero invincible========================
         invincibleTimer -= Time.deltaTime;
         if (invincibleTimer < 0)
             isInvincible = false;
 
-        //Healing and mana recovery
+        //========================Healing and mana recovery========================
         healingTime -= Time.deltaTime;
         if (healingTime <= 0)
         {
@@ -121,6 +145,8 @@ public class HeroKnight : MonoBehaviour
             healingTime = 1;
         }
 
+        //========================Handle input and movement========================
+        float inputX = Input.GetAxis("Horizontal");
 
         // Increase timer that controls attack combo
         m_timeSinceAttack += Time.deltaTime;
@@ -147,9 +173,6 @@ public class HeroKnight : MonoBehaviour
             m_animator.SetBool("Grounded", m_grounded);
         }
 
-        // -- Handle input and movement --
-        float inputX = Input.GetAxis("Horizontal");
-
         // Set direction of sprite, and flipX depending on walk direction
         if (inputX > 0)
         {
@@ -170,7 +193,7 @@ public class HeroKnight : MonoBehaviour
         //Set AirSpeed in animator
         m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
 
-        // -- Handle Animations --
+        //========================Handle Animations========================
         //Attack
         if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f && !m_rolling)
         {
@@ -194,15 +217,7 @@ public class HeroKnight : MonoBehaviour
             m_timeSinceAttack = 0.0f;
         }
 
-        // Block
-        else if (Input.GetMouseButtonDown(1) && !m_rolling)
-        {
-            m_animator.SetTrigger("Block");
-            m_animator.SetBool("IdleBlock", true);
-        }
 
-        else if (Input.GetMouseButtonUp(1))
-            m_animator.SetBool("IdleBlock", false);
 
         // Roll
         else if (Input.GetKeyDown("left shift") && !m_rolling && m_grounded == true)
@@ -240,24 +255,14 @@ public class HeroKnight : MonoBehaviour
                 m_animator.SetInteger("AnimState", 0);
         }
 
-        //Skill of hero
-        skill2Timer = Mathf.Clamp(skill2Timer - Time.deltaTime, -2, skill2CountDownTime);
-        if(skill2Timer <= 0){
-            isCountdown2 = false;
-        }
-        if(Input.GetKeyDown(KeyCode.Alpha2)){
-            if(isCountdown2 == true){
-                Debug.Log("Skill2 is countdown!");
-                DisplayDialog();
-            }else
-                skill2();
-        }
+        //Pause Menu
         if (Input.GetKey(KeyCode.Escape))
         {
             GameManager._instance.pause();
             pauseMenu.SetActive(true);
           
         }
+        
     }
 
     // Animation Events
@@ -378,10 +383,35 @@ public class HeroKnight : MonoBehaviour
     }
     //Skill 3: Ultimate
 
+    //Skill: Block
+    private void Block(){
+        isBlock = true;
+        if (!m_rolling)
+        {
+            m_animator.SetTrigger("Block");
+            m_animator.SetBool("IdleBlock", true);
+        }
+
+        else
+            m_animator.SetBool("IdleBlock", false);
+    }
+
     //========================Display text function========================
-    public void DisplayDialog()
+    public void DisplayDialog2()
     {
+        if(skill2DialogBox.activeSelf == true)
+            return;
         timerDisplay = displayTime;
         skill2DialogBox.SetActive(true);
+
     }
+    public void DisplayDialogBlock()
+    {
+        if(skill2DialogBox.activeSelf == true)
+            return;
+        timerDisplay = displayTime;
+        skill2DialogBox.SetActive(true);
+
+    }
+    
 }

@@ -34,7 +34,7 @@ public class MonsterController : MonoBehaviour
 
 
     //Health
-    public int maxHealth = 1000;
+    protected int maxHealth = 1000;
     public int health { get { return currentHealth; } }
     private int currentHealth;
 
@@ -46,9 +46,9 @@ public class MonsterController : MonoBehaviour
     //private bool isInvincible = false;
     //private float invincibleTimer;
     // Start is called before the first frame update
-    void Start()
+    protected virtual void Start()
     {
-        currentHealth = maxHealth;
+        currentHealth = this.maxHealth;
         renderer = GetComponent<Renderer>();
         rigidbody2D = GetComponent<Rigidbody2D>();
     }
@@ -79,8 +79,9 @@ public class MonsterController : MonoBehaviour
                 m_animator.SetBool("Run", false);
                 if (timerAttack <= 0)
                 {
-                    attackEffect.Play();
                     m_animator.SetTrigger("Attack1");
+                    setCanNotMove();
+
                     direction = Vector2.zero;
                     timerAttack = timeSinceAttack;
                 }
@@ -97,6 +98,7 @@ public class MonsterController : MonoBehaviour
     //delay attack
     protected virtual void Attack()
     {
+
         Collider2D[] hitHeros;
 
 
@@ -129,6 +131,7 @@ public class MonsterController : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
+        Debug.Log(amount);
         m_animator.SetTrigger("TakeHit");
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 
@@ -154,6 +157,7 @@ public class MonsterController : MonoBehaviour
     }
     void setCanNotMove()
     {
+        attackEffect.Play();
         isCanMove = false;
     }
     void setCanMove()
