@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dafba786f4f5b8242bc098edbf954165
+guid: d58a7c901ea677743866d81f3a06713e
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -15,7 +15,7 @@ TextureImporter:
       213: -9206091644520726168
     second: Take Hit_3
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 10
   mipmaps:
     mipMapMode: 0
     enableMipMap: 1
@@ -35,7 +35,6 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
-  vTOnly: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -45,8 +44,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: 1
-    mipBias: 0
+    aniso: -1
+    mipBias: -100
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -58,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -67,13 +66,9 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
-  flipbookRows: 1
-  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
-  ignorePngGamma: 0
-  applyGammaDecoding: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -144,8 +139,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 200
-        height: 200
+        width: 140
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,7 +148,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8825231ebd244904d9b5d34362515633
+      spriteID: 51bc5996547ec4d4c80448e612d7d4e2
       internalID: -7500690451134026123
       vertices: []
       indices: 
@@ -163,10 +158,10 @@ TextureImporter:
       name: Take Hit_1
       rect:
         serializedVersion: 2
-        x: 200
+        x: 140
         y: 0
-        width: 200
-        height: 200
+        width: 140
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,7 +169,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 45b16a5448a10e9409f45db5bcc32401
+      spriteID: bfae72a2dbc95294ebef393a7a7223bc
       internalID: -889859373511162655
       vertices: []
       indices: 
@@ -184,10 +179,10 @@ TextureImporter:
       name: Take Hit_2
       rect:
         serializedVersion: 2
-        x: 400
+        x: 280
         y: 0
-        width: 200
-        height: 200
+        width: 140
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,7 +190,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85b00174507798e429dbdd52b7c2cacf
+      spriteID: ee56629c1e40935499247264e41240b3
       internalID: -3088938797480143695
       vertices: []
       indices: 
@@ -205,10 +200,10 @@ TextureImporter:
       name: Take Hit_3
       rect:
         serializedVersion: 2
-        x: 600
+        x: 420
         y: 0
-        width: 200
-        height: 200
+        width: 140
+        height: 140
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,7 +211,7 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d63cf4e4847315b4da19c355f5e4385d
+      spriteID: 93a485e000440874fae6ce94349ea990
       internalID: -9206091644520726168
       vertices: []
       indices: 

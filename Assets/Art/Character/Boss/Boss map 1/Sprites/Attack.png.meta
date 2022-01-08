@@ -1,19 +1,25 @@
 fileFormatVersion: 2
-guid: 009d41ed566b98f46a83020862b7e60e
+guid: 40834912ca492db44b62044b38a8dd65
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -5966621866309598838
-    second: Fall_0
+      213: -7008412969330441016
+    second: Attack_0
   - first:
-      213: -2069157278089061004
-    second: Fall_1
+      213: -7763475090823894447
+    second: Attack_1
   - first:
-      213: 6596617931644657277
-    second: Fall_2
+      213: 302641331129538988
+    second: Attack_2
   - first:
-      213: 7514022213351704123
-    second: Fall_3
+      213: -6329420634031446844
+    second: Attack_3
+  - first:
+      213: -910092549403018386
+    second: Attack_4
+  - first:
+      213: 221524225039350300
+    second: Attack_5
   externalObjects: {}
   serializedVersion: 10
   mipmaps:
@@ -134,7 +140,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Fall_0
+      name: Attack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -148,14 +154,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5edab6f178a3d364b8ce86b4b7ba4bfc
-      internalID: -5966621866309598838
+      spriteID: 5b4ed5d97b1367c45b44eeef23ff3450
+      internalID: -7008412969330441016
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fall_1
+      name: Attack_1
       rect:
         serializedVersion: 2
         x: 140
@@ -169,14 +175,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43170de03fed71947b7ad3f3a5bcafe7
-      internalID: -2069157278089061004
+      spriteID: e45c0cd381e18bf4d9d6a53e5ef3cda9
+      internalID: -7763475090823894447
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fall_2
+      name: Attack_2
       rect:
         serializedVersion: 2
         x: 280
@@ -190,14 +196,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 398e00eff978ab74a9b8cd95f1382e7a
-      internalID: 6596617931644657277
+      spriteID: 3c0069b649eedb342a5d672186c92ccb
+      internalID: 302641331129538988
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Fall_3
+      name: Attack_3
       rect:
         serializedVersion: 2
         x: 420
@@ -211,8 +217,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0e8472cfd679e224f8d8859c625eda08
-      internalID: 7514022213351704123
+      spriteID: 0419077530193824bb3ce522196cf5c2
+      internalID: -6329420634031446844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_4
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 0
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 619cc829c87c62f458608c17e33ee58b
+      internalID: -910092549403018386
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Attack_5
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 0
+        width: 140
+        height: 140
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 487671cdc0621974bb578f06619de666
+      internalID: 221524225039350300
       vertices: []
       indices: 
       edges: []
