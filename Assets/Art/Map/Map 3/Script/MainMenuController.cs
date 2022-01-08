@@ -27,11 +27,11 @@ public class MainMenuController : MonoBehaviour
         GameManager._instance.resume();
         this.gameObject.SetActive(false);
     }
-    public void playGame()
+  /*  public void playGame()
     {
         GameManager._instance.checkNew = true;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
+    }*/
 
     public void option()
     {
@@ -58,5 +58,9 @@ public class MainMenuController : MonoBehaviour
         GameManager._instance.loadGame();
 
 
+    }
+    public void backtoMenu()
+    {
+        SceneManager.LoadScene(0);
     }
 }

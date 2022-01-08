@@ -59,10 +59,27 @@ public class GameManager
             file.Close();
 
             SceneManager.LoadScene(data);
+            Time.timeScale = 1;
 
 
         }
 
     }
+    public void selectMap1()
+    {
+        SceneManager.LoadScene(1);
+        Time.timeScale = 1;
+    }
+    public void selectMap2()
+    {
+        SceneManager.LoadScene(2); 
+        Time.timeScale = 1;
+    }
+    public void selectMap3()
+    {
+        SceneManager.LoadScene(3);
+        Time.timeScale = 1;
+    }
+
 }
 

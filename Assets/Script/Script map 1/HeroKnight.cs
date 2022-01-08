@@ -256,6 +256,7 @@ public class HeroKnight : MonoBehaviour
         {
             GameManager._instance.pause();
             pauseMenu.SetActive(true);
+          
         }
     }
 
@@ -265,32 +266,37 @@ public class HeroKnight : MonoBehaviour
     //========================Attack and health========================
     void Attack()
     {
-        Collider2D[] hitHeros;
-        m_animator.SetTrigger("Attack1");
-        currentMana = Mathf.Clamp(currentMana - 20, 0, maxMana);
-
-        UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
-        //Active attackPoint depending facing direction of hero
-        if (m_facingDirection == -1)
+        if (!pauseMenu.activeSelf) // check pause menu is active?
         {
-            hitHeros = Physics2D.OverlapCircleAll(attackPointLeft.position, attackRange, monsterLayers);
-        }
-        else
-        {
-            hitHeros = Physics2D.OverlapCircleAll(attackPointRight.position, attackRange, monsterLayers);
-        }
+            Collider2D[] hitHeros;
+            m_animator.SetTrigger("Attack1");
+            currentMana = Mathf.Clamp(currentMana - 20, 0, maxMana);
 
-
-        foreach (Collider2D obj in hitHeros)
-        {
-            MonsterController monsterController = obj.GetComponent<MonsterController>();
-            if (monsterController.isActiveAndEnabled)
+            UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
+            //Active attackPoint depending facing direction of hero
+            if (m_facingDirection == -1)
             {
-                monsterController.ChangeHealth(-heroDamage);
-
+                hitHeros = Physics2D.OverlapCircleAll(attackPointLeft.position, attackRange, monsterLayers);
+            }
+            else
+            {
+                hitHeros = Physics2D.OverlapCircleAll(attackPointRight.position, attackRange, monsterLayers);
             }
 
+
+            foreach (Collider2D obj in hitHeros)
+            {
+                MonsterController monsterController = obj.GetComponent<MonsterController>();
+                if (monsterController.isActiveAndEnabled)
+                {
+                    monsterController.ChangeHealth(-heroDamage);
+
+                }
+
+            }
         }
+        else return;
+        
     }
     void OnDrawGizmosSelected()
     {
@@ -341,20 +347,25 @@ public class HeroKnight : MonoBehaviour
     //Skill 1: Slashing Wind
     //Skill 2: Shield Buff Effective
     public void skill2(){
-        shieldEffect.Play();
-        skill2Timer = skill2CountDownTime;
-        isCountdown2 = true;
+        if (!pauseMenu.activeSelf) // check pause menu is active?
+        {
+            shieldEffect.Play();
+            skill2Timer = skill2CountDownTime;
+            isCountdown2 = true;
 
-        currentMana = Mathf.Clamp(currentMana -80, 0, maxMana);
-        UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
+            currentMana = Mathf.Clamp(currentMana - 80, 0, maxMana);
+            UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
 
-        //Increased strength
-        healing += 10;
-        manaRecovery += 5;
-        heroArmor += 10;
-        heroDamage += 50; 
+            //Increased strength
+            healing += 10;
+            manaRecovery += 5;
+            heroArmor += 10;
+            heroDamage += 50;
 
-        Invoke("returnNormalStrengh", 7);//Call returnNormalStrengh after 7s to let the hero's power return to its original state 
+            Invoke("returnNormalStrengh", 7);//Call returnNormalStrengh after 7s to let the hero's power return to its original state 
+
+        }
+        else return;
     }
     private void returnNormalStrengh()
     {
