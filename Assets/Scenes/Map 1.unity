@@ -98225,6 +98225,10 @@ PrefabInstance:
       propertyPath: skill2DialogBox
       value: 
       objectReference: {fileID: 1152870551}
+    - target: {fileID: 1994150300595283987, guid: 067b32399704abf46a4ec95a128ae221, type: 3}
+      propertyPath: PrefabsSkill2Countdown
+      value: 
+      objectReference: {fileID: 1152870551}
     - target: {fileID: 3597405478155647877, guid: 067b32399704abf46a4ec95a128ae221, type: 3}
       propertyPath: m_Name
       value: HeroKnight
