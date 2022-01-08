@@ -56,7 +56,6 @@ public class MonsterController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(this.maxHealth);
         timerAttack = Mathf.Clamp(timerAttack - Time.deltaTime, -2, timeSinceAttack);
         Vector2 heroPosition = hero.transform.position;
         Vector2 position = transform.position;
