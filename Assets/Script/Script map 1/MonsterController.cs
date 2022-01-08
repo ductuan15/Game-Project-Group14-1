@@ -82,7 +82,7 @@ public class MonsterController : MonoBehaviour
                 {
                     m_animator.SetTrigger("Attack1");
                     setCanNotMove();
-                    attackEffect.Play();
+
                     direction = Vector2.zero;
                     timerAttack = timeSinceAttack;
                 }
@@ -99,6 +99,7 @@ public class MonsterController : MonoBehaviour
     //delay attack
     protected virtual void Attack()
     {
+
         Collider2D[] hitHeros;
 
 
@@ -157,6 +158,7 @@ public class MonsterController : MonoBehaviour
     }
     void setCanNotMove()
     {
+        attackEffect.Play();
         isCanMove = false;
     }
     void setCanMove()

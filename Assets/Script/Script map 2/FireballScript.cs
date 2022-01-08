@@ -31,7 +31,7 @@ public class FireballScript : MonoBehaviour
         if (e != null)
         {
             Debug.Log("Heeeeeeyyy");
-            e.ChangeHealth(-20);
+            e.ChangeHealth(-200);
         }
         Destroy(gameObject);
     } 
