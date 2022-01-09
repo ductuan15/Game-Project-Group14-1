@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
-
+    //Audio
+    AudioSource audioSource;
+    public AudioClip attackAudioClip;
+    public AudioClip walkingAudioClip;
+    public AudioClip deathAudioClip;
+    //Animation
     public Animator m_animator;
     protected Vector2 direction;
     public float positionY = 1;
@@ -32,25 +37,21 @@ public class MonsterController : MonoBehaviour
 
     public ParticleSystem attackEffect;
 
-
     //Health
-    protected int maxHealth = 1000;
-    public int health { get { return currentHealth; } }
-    private int currentHealth;
-
+    protected float maxHealth = 1000;
+    public float health { get { return currentHealth; } }
+    private float currentHealth;
     private bool isCanMove = true;
+    //Level up for hero
+    protected HeroKnight heroKnight;
 
-
-
-    //public float timeInvincible = 1.0f;
-    //private bool isInvincible = false;
-    //private float invincibleTimer;
-    // Start is called before the first frame update
     protected virtual void Start()
     {
         currentHealth = this.maxHealth;
         renderer = GetComponent<Renderer>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
+        heroKnight = GameObject.Find("HeroKnight").GetComponent<HeroKnight>();
     }
 
     // Update is called once per frame
@@ -98,9 +99,8 @@ public class MonsterController : MonoBehaviour
     //delay attack
     protected virtual void Attack()
     {
-
+        audioSource.PlayOneShot(attackAudioClip);
         Collider2D[] hitHeros;
-
 
         if (direction.x > 0)
         {
@@ -129,7 +129,7 @@ public class MonsterController : MonoBehaviour
         Gizmos.DrawWireSphere(attackPointLeft.position, attackRange);
     }
 
-    public void ChangeHealth(int amount)
+    public void ChangeHealth(float amount)
     {
         m_animator.SetTrigger("TakeHit");
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
@@ -144,14 +144,16 @@ public class MonsterController : MonoBehaviour
         }
     }
 
-    private void Death()
+    protected virtual void Death()
     {
         m_animator.SetBool("Death", true);
+        heroKnight.ChangeLevelExp(30);
         //Disable object
         foreach (Transform child in transform)
         {
             GameObject.Destroy(child.gameObject);
         }
+        GetComponent<Rigidbody2D>().simulated = false;
         this.enabled = false;
     }
     void setCanNotMove()
@@ -162,5 +164,19 @@ public class MonsterController : MonoBehaviour
     void setCanMove()
     {
         isCanMove = true;
+    }
+    void PlayWalkSound()
+    {
+        audioSource.PlayOneShot(walkingAudioClip);
+    }
+
+    void PlayDeathSound()
+    {
+        audioSource.PlayOneShot(deathAudioClip);
+
+    }
+    private void OnParticleCollision(GameObject other)
+    {
+        ChangeHealth(-heroKnight.heroDamage*2);
     }
 }

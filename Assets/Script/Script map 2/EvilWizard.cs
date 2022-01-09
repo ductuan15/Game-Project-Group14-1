@@ -3,30 +3,40 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EvilWizard : MonsterController
-
 {
-
+    public GameObject crown;
     public GameObject projectilePrefab;
-    bool isFireNextTime = false;
 
     int fireEveryNAttackTime = 1;
     int countAttack = 1;
+
+    protected override void Start()
+    {
+
+        base.maxHealth = 10000;
+        base.monsterDistance = 2.7f;
+        base.Start();
+
+    }
     protected override void Attack()
     {
         base.Attack();
+        // attackAudioSource.Play();
         if (countAttack == 1)
         {
             monsterDistance = 100;
             countAttack--;
         }
-        else if(countAttack == 0){
+        else if (countAttack == 0)
+        {
             Launch();
-            countAttack =  fireEveryNAttackTime;
+            countAttack = fireEveryNAttackTime;
             monsterDistance = 2;
-        }else{
+        }
+        else
+        {
             Debug.Log(countAttack);
             countAttack--;
-
         }
     }
 
@@ -41,7 +51,13 @@ public class EvilWizard : MonsterController
         projectilerigidbody2D.SetRotation(-90.0f * direction.x);
         projectilerigidbody2D.AddForce(direction * 300);
 
-        Destroy(projectileObject, 1.0f);
+        Destroy(projectileObject, 2.0f);
     }
 
+    protected override void Death()
+    {
+        base.heroKnight.ChangeLevelExp(70);
+        base.Death();
+        Instantiate(crown, rigidbody2D.position + new Vector2(0, 1.5f), Quaternion.identity);
+    }
 }

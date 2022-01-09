@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3378003215849861153}
   - component: {fileID: 8791569618269800940}
   - component: {fileID: 3845584200762569142}
+  - component: {fileID: 2709527906370641302}
   m_Layer: 11
   m_Name: Crown
   m_TagString: Untagged
@@ -109,3 +110,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 1.6}
   m_EdgeRadius: 0
+--- !u!114 &2709527906370641302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3537919975500275109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 962df60d06603d149b42d5840b9e0902, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
