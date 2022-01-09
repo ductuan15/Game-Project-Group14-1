@@ -47,6 +47,7 @@ public class HeroKnightBossScript : MonsterController
 
     protected override void Death()
     {
+        base.heroKnight.ChangeLevelExp(70);
         base.Death();
         Instantiate(crown, rigidbody2D.position + new Vector2(0, 1.5f), Quaternion.identity);
     }

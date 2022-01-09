@@ -20,7 +20,7 @@ public class BossSlashingScript : MonoBehaviour
         HeroKnight e = other.collider.GetComponent<HeroKnight>();
         if (e != null)
         {
-            e.ChangeHealth(-200);
+            e.ChangeHealth(-300);
         }
         Destroy(gameObject);
     }

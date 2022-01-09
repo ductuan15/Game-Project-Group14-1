@@ -99,7 +99,6 @@ public class MonsterController : MonoBehaviour
     //delay attack
     protected virtual void Attack()
     {
-        Debug.Log("Attack");
         audioSource.PlayOneShot(attackAudioClip);
         Collider2D[] hitHeros;
 
@@ -168,13 +167,11 @@ public class MonsterController : MonoBehaviour
     }
     void PlayWalkSound()
     {
-        Debug.Log("Walking Sound");
         audioSource.PlayOneShot(walkingAudioClip);
     }
 
     void PlayDeathSound()
     {
-        Debug.Log("Death Sound");
         audioSource.PlayOneShot(deathAudioClip);
 
     }
