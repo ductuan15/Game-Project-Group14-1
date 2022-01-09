@@ -112,16 +112,16 @@ public class HeroKnight : MonoBehaviour
         //Audio
         audioSource = GetComponent<AudioSource>();
         //Dialog Skill Setup
-        skill1DialogBox.transform.position = new Vector3(124.5f, 42, 0);
+        skill1DialogBox.transform.position = new Vector3(235, 100, 0);
         skill1DialogBox.SetActive(false);
         timerSkill1Display = -1;
-        skill2DialogBox.transform.position = new Vector3(124.5f, 42, 0);
+        skill2DialogBox.transform.position = new Vector3(235, 100, 0);
         skill2DialogBox.SetActive(false);
         timerSkill2Display = -1;
-        skill3DialogBox.transform.position = new Vector3(124.5f, 42, 0);
+        skill3DialogBox.transform.position = new Vector3(235, 100, 0);
         skill3DialogBox.SetActive(false);
         timerSkill3Display = -1;
-        manaDialogBox.transform.position = new Vector3(124.5f, 42, 0);
+        manaDialogBox.transform.position = new Vector3(235, 100, 0);
         manaDialogBox.SetActive(false);
         timerManaDisplay = -1;
 
@@ -377,12 +377,12 @@ public class HeroKnight : MonoBehaviour
             if (timerManaDisplay < 0)
             {
                 manaDialogBox.SetActive(false);
-                manaDialogBox.transform.position = new Vector3(124.5f, 42, 0);
+                manaDialogBox.transform.position = new Vector3(235, 100, 0);
             }
         }
         if (manaDialogBox.activeSelf == true)
         {
-            manaDialogBox.transform.position += new Vector3(0, m_speed * 10 * Time.deltaTime, 0);
+            manaDialogBox.transform.position += new Vector3(0, m_speed * 15 * Time.deltaTime, 0);
         }
         //Skill 1
         if (timerSkill1Display >= 0)
@@ -391,13 +391,13 @@ public class HeroKnight : MonoBehaviour
             if (timerSkill1Display < 0)
             {
                 skill1DialogBox.SetActive(false);
-                skill1DialogBox.transform.position = new Vector3(124.5f, 42, 0);
+                skill1DialogBox.transform.position = new Vector3(235, 100, 0);
             }
 
         }
         if (skill1DialogBox.activeSelf == true)
         {
-            skill1DialogBox.transform.position += new Vector3(0, m_speed * 10 * Time.deltaTime, 0);
+            skill1DialogBox.transform.position += new Vector3(0, m_speed * 15 * Time.deltaTime, 0);
         }
         //Skill 2
         if (timerSkill2Display >= 0)
@@ -406,13 +406,13 @@ public class HeroKnight : MonoBehaviour
             if (timerSkill2Display < 0)
             {
                 skill2DialogBox.SetActive(false);
-                skill2DialogBox.transform.position = new Vector3(124.5f, 42, 0);
+                skill2DialogBox.transform.position = new Vector3(235, 100, 0);
             }
 
         }
         if (skill2DialogBox.activeSelf == true)
         {
-            skill2DialogBox.transform.position += new Vector3(0, m_speed * 10 * Time.deltaTime, 0);
+            skill2DialogBox.transform.position += new Vector3(0, m_speed * 15 * Time.deltaTime, 0);
         }
         //SKill 3
         if (timerSkill3Display >= 0)
@@ -421,13 +421,13 @@ public class HeroKnight : MonoBehaviour
             if (timerSkill3Display < 0)
             {
                 skill3DialogBox.SetActive(false);
-                skill3DialogBox.transform.position = new Vector3(124.5f, 42, 0);
+                skill3DialogBox.transform.position = new Vector3(235, 100, 0);
             }
 
         }
         if (skill3DialogBox.activeSelf == true)
         {
-            skill3DialogBox.transform.position += new Vector3(0, m_speed * 10 * Time.deltaTime, 0);
+            skill3DialogBox.transform.position += new Vector3(0, m_speed * 15 * Time.deltaTime, 0);
         }
     }
 
