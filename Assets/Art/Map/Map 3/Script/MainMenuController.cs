@@ -26,7 +26,7 @@ public class MainMenuController : MonoBehaviour
     }
     public void resume()
     {
-        sound.PlayOneShot(click);
+        this.playClick();
         GameManager._instance.resume();
         this.gameObject.SetActive(false);
     }
@@ -38,32 +38,37 @@ public class MainMenuController : MonoBehaviour
 
     public void option()
     {
-        sound.PlayOneShot(click);
+
+        
 
         optionMenu.SetActive(true);
        // Debug.Log("option");
     }
     public void quitGame()
     {
-        sound.PlayOneShot(click);
+
+        this.playClick();
 
         Application.Quit();
         Debug.Log("Quit Game");
     }
     public void Pause()
     {
-       
+        this.playClick();
+
         GameManager._instance.pause();
     }
     public void saveGame()
     {
-        sound.PlayOneShot(click);
+
+        this.playClick();
 
         GameManager._instance.saveGame();
     }
     public void loadGame()
     {
-        sound.PlayOneShot(click);
+        this.playClick();
+
 
         GameManager._instance.checkNew = false;
         //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -73,10 +78,11 @@ public class MainMenuController : MonoBehaviour
     }
     public void backtoMenu()
     {
-        sound.PlayOneShot(click);
+        this.playClick();
+
         SceneManager.LoadScene(0);
     }
-    public void playClick(AudioClip click)
+    public void playClick()
     {
         sound.PlayOneShot(click);
     }
