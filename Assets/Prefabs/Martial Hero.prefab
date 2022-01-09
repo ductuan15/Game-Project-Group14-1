@@ -189,7 +189,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!61 &6287110935741767105
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -242,6 +242,7 @@ MonoBehaviour:
   hero: {fileID: 0}
   delayTime: 0.4
   attackEffect: {fileID: 3255728935163234280}
+  projectilePrefab: {fileID: 875277404956118647, guid: ee44767a5d036584b99edb074e7b4831, type: 3}
   baseSpeed: 2
   baseMonsterDistance: 0.5
 --- !u!1001 &4739271293188945206
