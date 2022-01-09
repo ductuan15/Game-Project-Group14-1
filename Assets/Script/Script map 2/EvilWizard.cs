@@ -56,14 +56,7 @@ public class EvilWizard : MonsterController
 
     protected override void Death()
     {
-        m_animator.SetBool("Death", true);
-        //Disable object
-        foreach (Transform child in transform)
-        {
-            GameObject.Destroy(child.gameObject);
-        }
-        GetComponent<Rigidbody2D>().simulated = false;
-        Instantiate(crown, rigidbody2D.position, Quaternion.identity);
-        this.enabled = false;
+        base.Death();
+        Instantiate(crown, rigidbody2D.position + new Vector2(0, 1.5f), Quaternion.identity);
     }
 }

@@ -11,6 +11,8 @@ using UnityEngine;
 public class HeroKnightBossScript : MonsterController
 {
 
+    public GameObject crown;
+
     // Skill
     int skillEveryNAttackTime = 4;
     int countAttack;
@@ -43,5 +45,9 @@ public class HeroKnightBossScript : MonsterController
         }
     }
 
-
+    protected override void Death()
+    {
+        base.Death();
+        Instantiate(crown, rigidbody2D.position + new Vector2(0, 1.5f), Quaternion.identity);
+    }
 }

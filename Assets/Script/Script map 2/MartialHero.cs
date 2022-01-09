@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class MartialHero : MonsterController
 {
+    public GameObject crown;
 
     public GameObject projectilePrefab;
 
@@ -9,10 +10,6 @@ public class MartialHero : MonsterController
 
     int skillEveryNAttackTime = 1;
     int countAttack = 1;
-
-    float skillSpeed = 100.0f;
-
-    public float baseSpeed = 2.0f;
 
     public float baseMonsterDistance = 2.5f;
 
@@ -65,6 +62,10 @@ public class MartialHero : MonsterController
         projectilerigidbody2D.AddForce(direction * 300);
         Destroy(projectileObject, 2.0f);
 
-
+    }
+    protected override void Death()
+    {
+        base.Death();
+        Instantiate(crown, rigidbody2D.position + new Vector2(0, 1.5f), Quaternion.identity);
     }
 }

@@ -43,7 +43,7 @@ public class MonsterController : MonoBehaviour
     private float currentHealth;
     private bool isCanMove = true;
     //Level up for hero
-    private HeroKnight heroKnight;
+    protected HeroKnight heroKnight;
 
     protected virtual void Start()
     {
@@ -180,6 +180,6 @@ public class MonsterController : MonoBehaviour
     }
     private void OnParticleCollision(GameObject other)
     {
-        ChangeHealth(heroKnight.heroDamage*2);
+        ChangeHealth(-heroKnight.heroDamage*2);
     }
 }
