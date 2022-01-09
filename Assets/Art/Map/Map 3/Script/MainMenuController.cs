@@ -30,15 +30,16 @@ public class MainMenuController : MonoBehaviour
         GameManager._instance.resume();
         this.gameObject.SetActive(false);
     }
-  /*  public void playGame()
+    public void playGame()
     {
-        GameManager._instance.checkNew = true;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }*/
+        this.playClick();
+        Debug.Log("1");
+
+    }
 
     public void option()
     {
-
+        this.playClick();
         
 
         optionMenu.SetActive(true);
@@ -85,5 +86,6 @@ public class MainMenuController : MonoBehaviour
     public void playClick()
     {
         sound.PlayOneShot(click);
+        Debug.Log("1");
     }
 }
