@@ -54,7 +54,7 @@ public class HeroKnight : MonoBehaviour
     public float maxLevel = 100;
     public float level { get { return currentLevel; } }
     private float currentLevel = 0;
-    private int heroLevel = 1;
+    public int heroLevel = 1;
 
     //========================Armor========================
     public int heroArmor = 20;
@@ -267,7 +267,7 @@ public class HeroKnight : MonoBehaviour
             m_timeSinceAttack = 0.0f;
         }
         // Roll
-        else if (Input.GetKeyDown("left shift") && !m_rolling && m_grounded == true)
+        else if (Input.GetKeyDown(KeyCode.F) && !m_rolling && m_grounded == true)
         {
             m_rolling = true;
             m_animator.SetTrigger("Roll");
@@ -675,11 +675,11 @@ public class HeroKnight : MonoBehaviour
     }
     public void ChangeLevelExp(float amount){
         currentLevel += amount;
-        Debug.Log("Current EXP "+ currentLevel);
         UILevel.instance.SetValueLevel(currentLevel/maxLevel);
     }
     //Levelup
     private void LevelUp(){
+        heroLevel++;
         levelEffect.Play();
         //Power up
         heroArmor += 10;

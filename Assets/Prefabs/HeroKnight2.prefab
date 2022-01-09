@@ -51,7 +51,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3545144085432369551
 Transform:
   m_ObjectHideFlags: 0
@@ -216,6 +216,8 @@ MonoBehaviour:
   hero: {fileID: 0}
   delayTime: 0.4
   attackEffect: {fileID: 4695022854396681448}
+  maxHealth: 10000
+  crown: {fileID: 0}
   baseMonsterDistance: 1
   baseSpeed: 2.5
 --- !u!82 &1825396313

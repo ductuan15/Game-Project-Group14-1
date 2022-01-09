@@ -65,7 +65,7 @@ MonoBehaviour:
   attackPointLeft: {fileID: 4620889217434463066}
   attackPointRight: {fileID: 4620889216525627373}
   attackRange: 0.7
-  heroDamage: 10000
+  heroDamage: 100
   monsterLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -73,6 +73,7 @@ MonoBehaviour:
   maxMana: 300
   levelEffect: {fileID: 1869674181595047638}
   maxLevel: 100
+  heroLevel: 1
   heroArmor: 20
   displayTime: 2
   manaDialogBox: {fileID: 0}

@@ -81,7 +81,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7601790719094430573
 Transform:
   m_ObjectHideFlags: 0
@@ -234,18 +234,19 @@ MonoBehaviour:
   deathAudioClip: {fileID: 8300000, guid: 6ef410d0f4198844fa56f2c1a21b2925, type: 3}
   m_animator: {fileID: 4985130762629378751}
   positionY: 1
-  monsterDamage: 30
-  monsterDistance: 2.2
+  monsterDamage: 100
+  monsterDistance: 1.7
   attackPointRight: {fileID: 1477289448}
   attackPointLeft: {fileID: 2143234576}
-  attackRange: 0.5
-  speed: 5
+  attackRange: 0.7
+  speed: 2
   heroLayers:
     serializedVersion: 2
     m_Bits: 64
   hero: {fileID: 0}
   delayTime: 0.4
   attackEffect: {fileID: 5920178652523393171}
+  maxHealth: 1000
 --- !u!82 &77622825
 AudioSource:
   m_ObjectHideFlags: 0

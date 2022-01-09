@@ -38,7 +38,7 @@ public class MonsterController : MonoBehaviour
     public ParticleSystem attackEffect;
 
     //Health
-    protected float maxHealth = 1000;
+    public float maxHealth = 1000;
     public float health { get { return currentHealth; } }
     private float currentHealth;
     private bool isCanMove = true;

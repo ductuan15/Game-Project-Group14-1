@@ -235,10 +235,10 @@ MonoBehaviour:
   m_animator: {fileID: 2245521038957341981}
   positionY: 1
   monsterDamage: 100
-  monsterDistance: 1.69
+  monsterDistance: 1.5
   attackPointRight: {fileID: 583197077}
   attackPointLeft: {fileID: 1104762743}
-  attackRange: 0.5
+  attackRange: 0.6
   speed: 1.5
   heroLayers:
     serializedVersion: 2
@@ -246,6 +246,7 @@ MonoBehaviour:
   hero: {fileID: 0}
   delayTime: 0.4
   attackEffect: {fileID: 1970679301707081753}
+  maxHealth: 1000
 --- !u!82 &-5114825118893560303
 AudioSource:
   m_ObjectHideFlags: 0
