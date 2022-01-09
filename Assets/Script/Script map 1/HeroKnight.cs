@@ -24,6 +24,14 @@ public class HeroKnight : MonoBehaviour
     private float m_rollDuration = 8.0f / 14.0f;
     private float m_rollCurrentTime;
 
+    //========================Audio========================
+    [Header("Audio")]
+    AudioSource audioSource;
+    public AudioClip attackAudioClip;
+    public AudioClip takeHitAudioClip;
+    public AudioClip deathAudioClip;
+    public AudioClip walkingAudioClip;
+
     //========================Attack========================
     [Header("Attack")]
     public Transform attackPointLeft;
@@ -56,6 +64,8 @@ public class HeroKnight : MonoBehaviour
     private float timerManaDisplay;
     //Skill: Block Damage
     private bool isBlock = false;
+
+
     [Header("Skill 1: Slashing Wind")]
     public GameObject projectilePrefab1;
     public GameObject projectilePrefab2;
@@ -90,6 +100,8 @@ public class HeroKnight : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //Audio
+        audioSource = GetComponent<AudioSource>();
         //Dialog Skill Setup
         skill1DialogBox.transform.position = new Vector3(124.5f, 42, 0);
         skill1DialogBox.SetActive(false);
@@ -262,11 +274,12 @@ public class HeroKnight : MonoBehaviour
         {
             inputX = Input.GetAxis("Horizontal");
         }
-        else if(isBlock == true && m_grounded == true)
+        else if (isBlock == true && m_grounded == true)
         {
             inputX = 0;
         }
-        else if(isBlock == true && m_grounded == false){
+        else if (isBlock == true && m_grounded == false)
+        {
             inputX = Input.GetAxis("Horizontal");
         }
 
@@ -414,6 +427,8 @@ public class HeroKnight : MonoBehaviour
     {
         if (!pauseMenu.activeSelf) //Check pause menu is active?
         {
+            // Play sound attack
+            audioSource.PlayOneShot(attackAudioClip);
             Collider2D[] hitHeros;
             //Active attackPoint depending facing direction of hero
             if (m_facingDirection == -1)
@@ -458,6 +473,7 @@ public class HeroKnight : MonoBehaviour
             if (!isBlock)
             {
                 m_animator.SetTrigger("Hurt");
+                audioSource.PlayOneShot(takeHitAudioClip);
                 //Damage is reduced by armor 
                 currentHealth = Mathf.Clamp(currentHealth + temp, 0, maxHealth);
             }
@@ -479,12 +495,14 @@ public class HeroKnight : MonoBehaviour
             Death();
         }
     }
-    public void ChangeMana(int amount){
+    public void ChangeMana(int amount)
+    {
         currentMana = Mathf.Clamp(currentMana + amount, 0, maxMana);
         UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
     }
     private void Death()
     {
+        audioSource.PlayOneShot(deathAudioClip);
         m_animator.SetTrigger("Death");
         this.enabled = false;
         SceneManager.LoadScene(5);
@@ -496,7 +514,8 @@ public class HeroKnight : MonoBehaviour
     {
         if (!pauseMenu.activeSelf)
         {
-            if(currentMana < 80){
+            if (currentMana < 80)
+            {
                 DisplayDialogMana();
                 return;
             }
@@ -515,6 +534,7 @@ public class HeroKnight : MonoBehaviour
     }
     private void Launch(GameObject projectilePrefab)
     {
+        audioSource.PlayOneShot(attackAudioClip);
         GameObject projectileObject = Instantiate(projectilePrefab, new Vector3(m_body2d.position.x, m_body2d.position.y + 0.7f, 0), Quaternion.identity);
 
         SlashingScript projectile = projectileObject.GetComponent<SlashingScript>();
@@ -525,7 +545,7 @@ public class HeroKnight : MonoBehaviour
 
         Destroy(projectileObject, 2f);
     }
-     private void DisplayDialog1()
+    private void DisplayDialog1()
     {
         if (skill1DialogBox.activeSelf == true)
         {
@@ -539,7 +559,8 @@ public class HeroKnight : MonoBehaviour
     {
         if (!pauseMenu.activeSelf) // check pause menu is active?
         {
-            if(currentMana < 80){
+            if (currentMana < 80)
+            {
                 DisplayDialogMana();
                 return;
             }
@@ -584,7 +605,8 @@ public class HeroKnight : MonoBehaviour
     {
         if (!pauseMenu.activeSelf) // check pause menu is active?
         {
-            if(currentMana < 150){
+            if (currentMana < 150)
+            {
                 DisplayDialogMana();
                 return;
             }
@@ -636,6 +658,7 @@ public class HeroKnight : MonoBehaviour
         manaDialogBox.SetActive(true);
 
     }
-   
-
+    public void PlayWalkSound(){
+        audioSource.PlayOneShot(walkingAudioClip);
+    }
 }

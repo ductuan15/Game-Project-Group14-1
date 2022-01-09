@@ -14,13 +14,14 @@ public class EvilWizard : MonsterController
     {
 
         base.maxHealth = 10000;
+        base.monsterDistance = 2.7f;
         base.Start();
 
     }
     protected override void Attack()
     {
         base.Attack();
-        attackAudioSource.Play();
+        // attackAudioSource.Play();
         if (countAttack == 1)
         {
             monsterDistance = 100;
@@ -50,7 +51,7 @@ public class EvilWizard : MonsterController
         projectilerigidbody2D.SetRotation(-90.0f * direction.x);
         projectilerigidbody2D.AddForce(direction * 300);
 
-        Destroy(projectileObject, 1.0f);
+        Destroy(projectileObject, 2.0f);
     }
 
     protected override void Death()

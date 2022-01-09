@@ -30,7 +30,7 @@ public class MartialHero : MonsterController
     override protected void Attack()
     {
         Debug.Log(countAttack);
-        attackAudioSource.Play();
+        // attackAudioSource.Play();
 
         base.Attack();
         if (countAttack == 0)

@@ -7,9 +7,10 @@ public class MonsterController : MonoBehaviour
 
 
     //Audio
-    public AudioSource attackAudioSource;
-    public AudioSource walkingAudioSource;
-    public AudioSource deathAudioSource;
+    AudioSource audioSource;
+    public AudioClip attackAudioClip;
+    public AudioClip walkingAudioClip;
+    public AudioClip deathAudioClip;
     //Animation
     public Animator m_animator;
     protected Vector2 direction;
@@ -57,6 +58,7 @@ public class MonsterController : MonoBehaviour
         currentHealth = this.maxHealth;
         renderer = GetComponent<Renderer>();
         rigidbody2D = GetComponent<Rigidbody2D>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -105,7 +107,9 @@ public class MonsterController : MonoBehaviour
     protected virtual void Attack()
     {
 
-        attackAudioSource.Play();
+        Debug.Log("Attack");
+
+        audioSource.PlayOneShot(attackAudioClip);
 
         Collider2D[] hitHeros;
 
@@ -174,14 +178,19 @@ public class MonsterController : MonoBehaviour
     }
     void PlayWalkSound()
     {
-        walkingAudioSource.Play();
+        Debug.Log("Walking Sound");
+
+        audioSource.PlayOneShot(walkingAudioClip);
     }
 
     void PlayDeathSound()
     {
-        deathAudioSource.Play();
+        Debug.Log("Death Sound");
+        audioSource.PlayOneShot(deathAudioClip);
+
     }
-    private void OnParticleCollision(GameObject other){
+    private void OnParticleCollision(GameObject other)
+    {
 
         ChangeHealth(-200);
     }

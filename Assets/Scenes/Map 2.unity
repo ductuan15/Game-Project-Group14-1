@@ -19389,7 +19389,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4529272032161628686, guid: 29675bee1a3c25c40a89fff229692093, type: 3}
       propertyPath: m_Name
-      value: HeroKnight Ver2
+      value: HeroKnight
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 29675bee1a3c25c40a89fff229692093, type: 3}
