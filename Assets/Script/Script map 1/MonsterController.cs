@@ -183,6 +183,6 @@ public class MonsterController : MonoBehaviour
     }
     private void OnParticleCollision(GameObject other){
 
-        ChangeHealth(-100);
+        ChangeHealth(-200);
     }
 }

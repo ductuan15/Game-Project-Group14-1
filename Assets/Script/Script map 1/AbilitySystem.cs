@@ -55,15 +55,15 @@ public class AbilitySystem : MonoBehaviour
             isCountdown3 = false;
         }
 
-        if(Input.GetKeyDown(KeyCode.Q)){
-            Skill1();
-        }
-        if(Input.GetKeyDown(KeyCode.W)){
-            Skill2();
-        }
-        if(Input.GetKeyDown(KeyCode.E)){
-            Skill3();
-        }
+        // if(Input.GetKeyDown(KeyCode.Q)){
+        //     Skill1();
+        // }
+        // if(Input.GetKeyDown(KeyCode.W)){
+        //     Skill2();
+        // }
+        // if(Input.GetKeyDown(KeyCode.E)){
+        //     Skill3();
+        // }
     }
 
     public void Skill1(){

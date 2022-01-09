@@ -80,7 +80,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7601790719094430573
 Transform:
   m_ObjectHideFlags: 0
@@ -228,14 +228,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c97f962761762f48881e203abfb4da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackAudioSource: {fileID: 0}
+  walkingAudioSource: {fileID: 0}
+  deathAudioSource: {fileID: 0}
   m_animator: {fileID: 4985130762629378751}
   positionY: 1
   monsterDamage: 30
-  monsterDistance: 1.2
+  monsterDistance: 2.2
   attackPointRight: {fileID: 1477289448}
   attackPointLeft: {fileID: 2143234576}
   attackRange: 0.5
-  speed: 1.5
+  speed: 5
   heroLayers:
     serializedVersion: 2
     m_Bits: 64

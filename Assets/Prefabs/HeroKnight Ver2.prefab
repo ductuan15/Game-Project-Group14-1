@@ -67,6 +67,13 @@ MonoBehaviour:
   maxMana: 300
   heroArmor: 20
   displayTime: 2
+  manaDialogBox: {fileID: 0}
+  projectilePrefab1: {fileID: 2516434184690257594, guid: 77faceb66146fda4d909a1d54254e0bc, type: 3}
+  projectilePrefab2: {fileID: 8599933096746894096, guid: ccde22fa49a2ddf4dad4e03f256f35c6, type: 3}
+  projectilePrefab3: {fileID: 766335405035213192, guid: 61d2d56488f45df46b683a9be8d4419a, type: 3}
+  skill1CountDownTime: 5
+  skill1Effective: 3
+  skill1DialogBox: {fileID: 0}
   shieldEffect: {fileID: 5241367698838922309}
   skill2CountDownTime: 20
   skill2Effective: 7
@@ -178,7 +185,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.662}
+  m_Offset: {x: 0.0000038146973, y: 0.66200006}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0}
@@ -189,7 +196,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.73, y: 1.2}
+  m_Size: {x: 0.5100632, y: 1.2}
   m_EdgeRadius: 0
 --- !u!1 &4620889216525627374
 GameObject:
@@ -584,6 +591,10 @@ PrefabInstance:
     - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
       propertyPath: CollisionModule.enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: CollisionModule.radiusScale
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
       propertyPath: CollisionModule.maxKillSpeed
