@@ -35,9 +35,9 @@ public class HeroKnight : MonoBehaviour
 
     //========================Health========================
     [Header("Health and Mana")]
-    public int maxHealth = 1000;
-    public int health { get { return currentHealth; } }
-    private int currentHealth;
+    public float maxHealth = 1000;
+    public float health { get { return currentHealth; } }
+    private float currentHealth;
     //========================Mana========================
     public int maxMana = 300;
     public int mana { get { return currentMana; } }
@@ -49,11 +49,6 @@ public class HeroKnight : MonoBehaviour
     private float healingTime = 1;
     private int healing = 5;
     private int manaRecovery = 1;
-
-    //========================Hero Invincible========================
-    public float timeInvincible = 1.0f;
-    private bool isInvincible = false;
-    private float invincibleTimer;
 
     //========================Skill of hero========================
     [Header("Skill of hero")]
@@ -111,8 +106,11 @@ public class HeroKnight : MonoBehaviour
         }
         
         //Skill: Block dame
-        if(Input.GetKeyDown(KeyCode.Q)){
+        if(Input.GetKeyDown(KeyCode.Q) && !m_rolling){
                 Block();
+        }
+        else if(Input.GetKeyUp(KeyCode.Q)){
+            notBlock();
         }
         //========================Display text========================
         if (timerDisplay >= 0)
@@ -128,10 +126,6 @@ public class HeroKnight : MonoBehaviour
         if(skill2DialogBox.activeSelf == true){
             skill2DialogBox.transform.position += new Vector3(0, m_speed * 10 * Time.deltaTime, 0);
         }
-        //========================Hero invincible========================
-        invincibleTimer -= Time.deltaTime;
-        if (invincibleTimer < 0)
-            isInvincible = false;
 
         //========================Healing and mana recovery========================
         healingTime -= Time.deltaTime;
@@ -146,7 +140,13 @@ public class HeroKnight : MonoBehaviour
         }
 
         //========================Handle input and movement========================
-        float inputX = Input.GetAxis("Horizontal");
+        float inputX;
+        if(isBlock == false){
+            inputX = Input.GetAxis("Horizontal");
+        }
+        else{
+            inputX = 0;
+        }
 
         // Increase timer that controls attack combo
         m_timeSinceAttack += Time.deltaTime;
@@ -271,7 +271,7 @@ public class HeroKnight : MonoBehaviour
     //========================Attack and health========================
     void Attack()
     {
-        if (!pauseMenu.activeSelf) // check pause menu is active?
+        if (!pauseMenu.activeSelf) //Check pause menu is active?
         {
             Collider2D[] hitHeros;
             m_animator.SetTrigger("Attack1");
@@ -315,20 +315,19 @@ public class HeroKnight : MonoBehaviour
     }
     public void ChangeHealth(int amount)
     {
-        // if hero rolling, he can dodge
-        if (amount < 0 && !m_rolling)
+        if (amount < 0 && !m_rolling)//If hero rolling, he can dodge
         {
-            //If character is invincible, it can't get damaged
-            if (isInvincible)
-                return;
-            m_animator.SetTrigger("Hurt");
-
-            isInvincible = true;
-            invincibleTimer = timeInvincible;
-            //Damage is reduced by armor 
-            int temp = Mathf.Clamp(amount + heroArmor, -maxHealth, 0);
-            currentHealth = Mathf.Clamp(currentHealth + temp, 0, maxHealth);
-
+            float temp = Mathf.Clamp(amount + heroArmor, -maxHealth, 0);
+            if(isBlock == false){
+                m_animator.SetTrigger("Hurt");
+                //Damage is reduced by armor 
+                currentHealth = Mathf.Clamp(currentHealth + temp, 0, maxHealth);
+            }
+            else{//Damage is reduced by Block SKill
+                m_animator.SetBool("BlockAction", true);
+                currentHealth = Mathf.Clamp(currentHealth + (temp*0.1f), 0, maxHealth);
+                Invoke("resetBlockAction",0.5f);
+            }
         }
         else
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
@@ -388,12 +387,20 @@ public class HeroKnight : MonoBehaviour
         isBlock = true;
         if (!m_rolling)
         {
-            m_animator.SetTrigger("Block");
-            m_animator.SetBool("IdleBlock", true);
+            m_animator.SetBool("Block", true);
         }
-
         else
-            m_animator.SetBool("IdleBlock", false);
+            return;
+    }
+
+    private void notBlock(){
+        isBlock = false;
+        m_animator.SetBool("Block", false);
+
+    }
+
+    private void resetBlockAction(){
+        m_animator.SetBool("BlockAction",false);
     }
 
     //========================Display text function========================

@@ -131,7 +131,6 @@ public class MonsterController : MonoBehaviour
 
     public void ChangeHealth(int amount)
     {
-        Debug.Log(amount);
         m_animator.SetTrigger("TakeHit");
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
 
