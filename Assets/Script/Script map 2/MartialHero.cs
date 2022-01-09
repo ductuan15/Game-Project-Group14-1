@@ -19,8 +19,9 @@ public class MartialHero : MonsterController
     // change stat here
     protected override void Start()
     {
-        base.maxHealth = 100000;
-        base.speed = 5f;
+
+        base.maxHealth = 1000;
+        base.speed = 3.0f;
         base.Start();
 
     }
@@ -29,6 +30,8 @@ public class MartialHero : MonsterController
     override protected void Attack()
     {
         Debug.Log(countAttack);
+        attackAudioSource.Play();
+
         base.Attack();
         if (countAttack == 0)
         {

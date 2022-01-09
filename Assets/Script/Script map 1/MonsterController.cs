@@ -5,6 +5,12 @@ using UnityEngine;
 public class MonsterController : MonoBehaviour
 {
 
+
+    //Audio
+    public AudioSource attackAudioSource;
+    public AudioSource walkingAudioSource;
+    public AudioSource deathAudioSource;
+    //Animation
     public Animator m_animator;
     protected Vector2 direction;
     public float positionY = 1;
@@ -99,6 +105,8 @@ public class MonsterController : MonoBehaviour
     protected virtual void Attack()
     {
 
+        attackAudioSource.Play();
+
         Collider2D[] hitHeros;
 
 
@@ -162,5 +170,14 @@ public class MonsterController : MonoBehaviour
     void setCanMove()
     {
         isCanMove = true;
+    }
+    void PlayWalkSound()
+    {
+        walkingAudioSource.Play();
+    }
+
+    void PlayDeathSound()
+    {
+        deathAudioSource.Play();
     }
 }
