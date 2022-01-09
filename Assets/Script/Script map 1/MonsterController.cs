@@ -18,6 +18,7 @@ public class MonsterController : MonoBehaviour
     //Attack Point
     public Transform attackPointRight;
     public Transform attackPointLeft;
+    public Transform attackUltimate;
     public float attackRange = 0.5f;
     public float speed = 1.5f;
 
@@ -162,5 +163,10 @@ public class MonsterController : MonoBehaviour
     void setCanMove()
     {
         isCanMove = true;
+    }
+
+    private void OnParticleCollision(GameObject other){
+
+        ChangeHealth(-100);
     }
 }

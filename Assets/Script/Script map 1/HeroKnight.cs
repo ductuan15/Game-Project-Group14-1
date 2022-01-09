@@ -107,8 +107,8 @@ public class HeroKnight : MonoBehaviour
         if(skill3Timer <= 0){
             isCountdown3 = false;
         }
-        if(Input.GetKeyDown(KeyCode.Alpha3)){
-            if(isCountdown2 == true){
+        if(Input.GetKeyDown(KeyCode.E)){
+            if(isCountdown3 == true){
                 DisplayDialog3();
             }else
                 skill3();
@@ -118,7 +118,7 @@ public class HeroKnight : MonoBehaviour
         if(skill2Timer <= 0){
             isCountdown2 = false;
         }
-        if(Input.GetKeyDown(KeyCode.Alpha2)){
+        if(Input.GetKeyDown(KeyCode.W)){
             if(isCountdown2 == true){
                 DisplayDialog2();
             }else
@@ -133,6 +133,7 @@ public class HeroKnight : MonoBehaviour
             notBlock();
         }
         //========================Display text========================
+        //Skill 2
         if (timerSkill2Display >= 0)
         {
             timerSkill2Display -= Time.deltaTime;
@@ -146,6 +147,7 @@ public class HeroKnight : MonoBehaviour
         if(skill2DialogBox.activeSelf == true){
             skill2DialogBox.transform.position += new Vector3(0, m_speed * 10 * Time.deltaTime, 0);
         }
+        //SKill 3
         if (timerSkill3Display >= 0)
         {
             timerSkill3Display -= Time.deltaTime;
@@ -307,7 +309,6 @@ public class HeroKnight : MonoBehaviour
         if (!pauseMenu.activeSelf) //Check pause menu is active?
         {
             Collider2D[] hitHeros;
-            m_animator.SetTrigger("Attack1");
             currentMana = Mathf.Clamp(currentMana - 20, 0, maxMana);
 
             UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
