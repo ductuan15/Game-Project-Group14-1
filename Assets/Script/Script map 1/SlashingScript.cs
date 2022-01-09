@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SliceScript : MonoBehaviour
+public class SlashingScript : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -15,12 +15,12 @@ public class SliceScript : MonoBehaviour
     {
 
     }
+
     void OnCollisionEnter2D(Collision2D other)
     {
-        HeroKnight e = other.collider.GetComponent<HeroKnight>();
+        MonsterController e = other.collider.GetComponent<MonsterController>();
         if (e != null)
         {
-            Debug.Log("Heeeeeeyyy");
             e.ChangeHealth(-200);
         }
         Destroy(gameObject);

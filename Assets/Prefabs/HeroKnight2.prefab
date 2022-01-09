@@ -53,7 +53,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &3545144085432369551
 Transform:
   m_ObjectHideFlags: 0
@@ -294,7 +294,7 @@ AudioSource:
   m_GameObject: {fileID: 3545144085432369549}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: c6c5225a06960364c91530659dec82da, type: 2}
   m_audioClip: {fileID: 8300000, guid: 5a4f44358e65846499de4749f9916c29, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
@@ -489,12 +489,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78e3d9d514696584d9cf18da8a24a95e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackAudioSource: {fileID: 169223667}
+  walkingAudioSource: {fileID: 169223668}
+  deathAudioSource: {fileID: 169223669}
   m_animator: {fileID: 3545144085432369553}
   positionY: 1
   monsterDamage: 100
   monsterDistance: 0
   attackPointRight: {fileID: 3545144085971000337}
   attackPointLeft: {fileID: 3545144084788571640}
+  attackUltimate: {fileID: 0}
   attackRange: 0.5
   speed: 1.5
   heroLayers:
@@ -503,9 +507,6 @@ MonoBehaviour:
   hero: {fileID: 0}
   delayTime: 0.4
   attackEffect: {fileID: 4695022854396681448}
-  attackAudioSource: {fileID: 169223667}
-  walkingAudioSource: {fileID: 169223668}
-  deathAudioSource: {fileID: 169223669}
   baseMonsterDistance: 1
   baseSpeed: 2.5
 --- !u!1 &3545144085971000334

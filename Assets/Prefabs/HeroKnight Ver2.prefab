@@ -71,6 +71,7 @@ MonoBehaviour:
   skill2CountDownTime: 20
   skill2Effective: 7
   skill2DialogBox: {fileID: 0}
+  ultimateSkill: {fileID: 9196867416249258961}
   skill3CountDownTime: 40
   skill3DialogBox: {fileID: 0}
 --- !u!95 &5603417924257801897
@@ -276,7 +277,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7535754112432342941}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.02, z: 0}
+  m_LocalPosition: {x: 0, y: -0.011, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2151513246300900953}
@@ -518,7 +519,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1759968187877861313, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1759968187878030305, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
       propertyPath: m_RootOrder
@@ -564,6 +565,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893188353, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+    - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: UVModule.mode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
       propertyPath: CollisionModule.type
       value: 1
@@ -573,17 +586,98 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: CollisionModule.maxKillSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: CollisionModule.colliderForce
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: CollisionModule.collisionMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
       propertyPath: InitialModule.startSize.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: CollisionModule.collisionMessages
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
       propertyPath: CollisionModule.collidesWith.m_Bits
       value: 128
       objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: TriggerModule.primitives.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: CollisionModule.multiplyColliderForceByParticleSize
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235363, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: looping
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235363, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235363, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235363, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: CollisionModule.radiusScale
+      value: 0.0001
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235363, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: CollisionModule.collisionMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235363, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: InitialModule.startSize.scalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235363, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: InitialModule.startSize.minScalar
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235363, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: CollisionModule.collidesWith.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235363, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: InitialModule.startSizeY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235363, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: InitialModule.startSizeZ.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235363, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: InitialModule.startRotationX.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235363, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: InitialModule.startRotationY.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
 --- !u!4 &9196867416230909585 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1759968187878030305, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+  m_PrefabInstance: {fileID: 7479774803469790576}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &9196867416249258961 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
   m_PrefabInstance: {fileID: 7479774803469790576}
   m_PrefabAsset: {fileID: 0}

@@ -24,7 +24,6 @@ public class MonsterController : MonoBehaviour
     //Attack Point
     public Transform attackPointRight;
     public Transform attackPointLeft;
-    public Transform attackUltimate;
     public float attackRange = 0.5f;
     public float speed = 1.5f;
 
@@ -153,7 +152,7 @@ public class MonsterController : MonoBehaviour
         }
     }
 
-    private void Death()
+    protected virtual void Death()
     {
         m_animator.SetBool("Death", true);
         //Disable object
@@ -161,6 +160,7 @@ public class MonsterController : MonoBehaviour
         {
             GameObject.Destroy(child.gameObject);
         }
+        GetComponent<Rigidbody2D>().simulated = false;
         this.enabled = false;
     }
     void setCanNotMove()

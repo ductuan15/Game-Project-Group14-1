@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class EvilWizard : MonsterController
-
 {
+    public GameObject crown;
     public GameObject projectilePrefab;
 
     int fireEveryNAttackTime = 1;
@@ -12,6 +12,7 @@ public class EvilWizard : MonsterController
 
     protected override void Start()
     {
+
         base.maxHealth = 10000;
         base.Start();
 
@@ -50,5 +51,18 @@ public class EvilWizard : MonsterController
         projectilerigidbody2D.AddForce(direction * 300);
 
         Destroy(projectileObject, 1.0f);
+    }
+
+    protected override void Death()
+    {
+        m_animator.SetBool("Death", true);
+        //Disable object
+        foreach (Transform child in transform)
+        {
+            GameObject.Destroy(child.gameObject);
+        }
+        GetComponent<Rigidbody2D>().simulated = false;
+        Instantiate(crown, rigidbody2D.position, Quaternion.identity);
+        this.enabled = false;
     }
 }

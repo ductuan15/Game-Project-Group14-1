@@ -58,7 +58,7 @@ public class MartialHero : MonsterController
         Debug.Log("Fire");
         GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2D.position, Quaternion.identity);
 
-        SliceScript projectile = projectileObject.GetComponent<SliceScript>();
+        BossSlashingScript projectile = projectileObject.GetComponent<BossSlashingScript>();
         projectile.transform.GetComponent<SpriteRenderer>().flipX = direction.x < 0;
         Rigidbody2D projectilerigidbody2D = projectile.GetComponent<Rigidbody2D>();
 
