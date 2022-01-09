@@ -14,6 +14,7 @@ public class EvilWizard : MonsterController
     {
 
         base.maxHealth = 10000;
+        base.monsterDamage = 100;
         base.monsterDistance = 2.7f;
         base.Start();
 
