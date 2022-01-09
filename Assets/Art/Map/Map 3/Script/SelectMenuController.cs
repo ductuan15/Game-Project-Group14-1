@@ -15,7 +15,7 @@ public class SelectMenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
     public void selectMap1()
     {
@@ -31,5 +31,10 @@ public class SelectMenuController : MonoBehaviour
     {
         sound.PlayOneShot(click);
         GameManager._instance.selectMap3();
+    }
+    public void playClick()
+    {
+        sound.PlayOneShot(click);
+
     }
 }
