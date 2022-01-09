@@ -37,18 +37,25 @@ public class HeroKnight : MonoBehaviour
     public Transform attackPointLeft;
     public Transform attackPointRight;
     public float attackRange = 0.5f;
-    public int heroDamage = 100;
+    public float heroDamage = 100;
     public LayerMask monsterLayers;
 
     //========================Health========================
-    [Header("Health and Mana")]
+    [Header("Health/Mana/Level")]
     public float maxHealth = 1000;
     public float health { get { return currentHealth; } }
     private float currentHealth;
     //========================Mana========================
-    public int maxMana = 300;
-    public int mana { get { return currentMana; } }
-    private int currentMana;
+    public float maxMana = 300;
+    public float mana { get { return currentMana; } }
+    private float currentMana;
+    //========================Level========================
+    [SerializeField] ParticleSystem levelEffect = null;
+    public float maxLevel = 100;
+    public float level { get { return currentLevel; } }
+    private float currentLevel = 0;
+    private int heroLevel = 1;
+
     //========================Armor========================
     public int heroArmor = 20;
 
@@ -90,6 +97,7 @@ public class HeroKnight : MonoBehaviour
 
     public GameObject skill2DialogBox;
     float timerSkill2Display;
+    private int ManaSkill12 = 80;
     [Header("Skill 3: Ultimate")]
     [SerializeField] ParticleSystem ultimateSkill = null;
     public float skill3CountDownTime = 40.0f;
@@ -97,6 +105,7 @@ public class HeroKnight : MonoBehaviour
     private bool isCountdown3 = false;
     public GameObject skill3DialogBox;
     float timerSkill3Display;
+    private int ManaSkill3 = 150;
     // Use this for initialization
     void Start()
     {
@@ -119,6 +128,7 @@ public class HeroKnight : MonoBehaviour
         //Skill and particle
         shieldEffect.Stop();
         ultimateSkill.Stop();
+        levelEffect.Stop();
 
         //Health and mana
         currentHealth = maxHealth;
@@ -130,11 +140,175 @@ public class HeroKnight : MonoBehaviour
         ability = GameObject.FindGameObjectWithTag("Canvas").GetComponent<AbilitySystem>();
 
         m_groundSensor = transform.Find("GroundSensor").GetComponent<Sensor_HeroKnight>();
+
+        UILevel.instance.SetValueLevel(currentLevel/maxLevel);
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Level up
+        if(currentLevel > maxLevel){
+            currentLevel = Mathf.Clamp(currentLevel - maxLevel, 0, maxLevel);
+            UILevel.instance.SetValueLevel(currentLevel/maxLevel);
+            LevelUp();
+        }
+        //========================Healing and mana recovery========================
+        healingTime -= Time.deltaTime;
+        if (healingTime <= 0)
+        {
+            currentHealth = Mathf.Clamp(currentHealth + healing, 0, maxHealth);
+            UIHealthBar.instance.SetValueHealth(currentHealth / (float)maxHealth);
+
+            currentMana = Mathf.Clamp(currentMana + manaRecovery, 0, maxMana);
+            UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
+            healingTime = 1;
+        }
+        //========================Handle input and movement========================
+        float inputX = 0;
+        if (isBlock == false)
+        {
+            inputX = Input.GetAxis("Horizontal");
+        }
+        else if (isBlock == true && m_grounded == true)
+        {
+            inputX = 0;
+        }
+        else if (isBlock == true && m_grounded == false)
+        {
+            inputX = Input.GetAxis("Horizontal");
+        }
+
+        // Increase timer that controls attack combo
+        m_timeSinceAttack += Time.deltaTime;
+
+        // Increase timer that checks roll duration
+        if (m_rolling)
+            m_rollCurrentTime += Time.deltaTime;
+
+        // Disable rolling if timer extends duration
+        if (m_rollCurrentTime > m_rollDuration)
+            m_rolling = false;
+
+        //Check if character just landed on the ground
+        if (!m_grounded && m_groundSensor.State())
+        {
+            m_grounded = true;
+            m_animator.SetBool("Grounded", m_grounded);
+        }
+
+        //Check if character just started falling
+        if (m_grounded && !m_groundSensor.State())
+        {
+            m_grounded = false;
+            m_animator.SetBool("Grounded", m_grounded);
+        }
+
+        // Set direction of sprite, and flipX depending on walk direction
+        if (inputX > 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = false;
+            m_facingDirection = 1;
+        }
+
+        else if (inputX < 0)
+        {
+            GetComponent<SpriteRenderer>().flipX = true;
+            m_facingDirection = -1;
+        }
+
+        // Move
+        if (!m_rolling)
+            m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
+
+        //Set AirSpeed in animator
+        m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
+
+        //========================Handle Animations========================
+        //Attack
+        if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f && !m_rolling)
+        {
+            m_currentAttack++;
+
+            // Loop back to one after third attack
+            if (m_currentAttack > 3)
+                m_currentAttack = 1;
+
+            // Reset Attack combo if time since last attack is too large
+            if (m_timeSinceAttack > 1.0f)
+                m_currentAttack = 1;
+
+            // Call one of three attack animations "Attack1", "Attack2", "Attack3"
+            m_animator.SetTrigger("Attack" + m_currentAttack);
+            if (isSkill1Effective)
+            {
+                switch (m_currentAttack)
+                {
+                    case 1:
+                        Launch(projectilePrefab1);
+                        break;
+                    case 2:
+                        Launch(projectilePrefab2);
+                        break;
+                    case 3:
+                        Launch(projectilePrefab3);
+                        break;
+                    default:
+                        break;
+                }
+            }
+            else
+            {
+                //Call function attack
+                Attack();
+            }
+
+            // Reset timer
+            m_timeSinceAttack = 0.0f;
+        }
+        // Roll
+        else if (Input.GetKeyDown("left shift") && !m_rolling && m_grounded == true)
+        {
+            m_rolling = true;
+            m_animator.SetTrigger("Roll");
+            m_body2d.velocity = new Vector2(m_facingDirection * m_rollForce, m_body2d.velocity.y);
+        }
+
+
+        //Jump
+        else if (Input.GetKeyDown("space") && m_grounded && !m_rolling)
+        {
+            m_animator.SetTrigger("Jump");
+            m_grounded = false;
+            m_animator.SetBool("Grounded", m_grounded);
+            m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
+            m_groundSensor.Disable(0.2f);
+        }
+
+        //Run
+        else if (Mathf.Abs(inputX) > Mathf.Epsilon)
+        {
+            // Reset timer
+            m_delayToIdle = 0.05f;
+            m_animator.SetInteger("AnimState", 1);
+        }
+
+        //Idle
+        else
+        {
+            // Prevents flickering transitions to idle
+            m_delayToIdle -= Time.deltaTime;
+            if (m_delayToIdle < 0)
+                m_animator.SetInteger("AnimState", 0);
+        }
+
+        //Pause Menu
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            GameManager._instance.pause();
+            pauseMenu.SetActive(true);
+
+        }
         //========================Skill of hero========================
         //Skill: Block dame
         if (Input.GetKeyDown(KeyCode.R) && !m_rolling)
@@ -255,168 +429,6 @@ public class HeroKnight : MonoBehaviour
         {
             skill3DialogBox.transform.position += new Vector3(0, m_speed * 10 * Time.deltaTime, 0);
         }
-
-        //========================Healing and mana recovery========================
-        healingTime -= Time.deltaTime;
-        if (healingTime <= 0)
-        {
-            currentHealth = Mathf.Clamp(currentHealth + healing, 0, maxHealth);
-            UIHealthBar.instance.SetValueHealth(currentHealth / (float)maxHealth);
-
-            currentMana = Mathf.Clamp(currentMana + manaRecovery, 0, maxMana);
-            UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
-            healingTime = 1;
-        }
-
-        //========================Handle input and movement========================
-        float inputX = 0;
-        if (isBlock == false)
-        {
-            inputX = Input.GetAxis("Horizontal");
-        }
-        else if (isBlock == true && m_grounded == true)
-        {
-            inputX = 0;
-        }
-        else if (isBlock == true && m_grounded == false)
-        {
-            inputX = Input.GetAxis("Horizontal");
-        }
-
-        // Increase timer that controls attack combo
-        m_timeSinceAttack += Time.deltaTime;
-
-        // Increase timer that checks roll duration
-        if (m_rolling)
-            m_rollCurrentTime += Time.deltaTime;
-
-        // Disable rolling if timer extends duration
-        if (m_rollCurrentTime > m_rollDuration)
-            m_rolling = false;
-
-        //Check if character just landed on the ground
-        if (!m_grounded && m_groundSensor.State())
-        {
-            m_grounded = true;
-            m_animator.SetBool("Grounded", m_grounded);
-        }
-
-        //Check if character just started falling
-        if (m_grounded && !m_groundSensor.State())
-        {
-            m_grounded = false;
-            m_animator.SetBool("Grounded", m_grounded);
-        }
-
-        // Set direction of sprite, and flipX depending on walk direction
-        if (inputX > 0)
-        {
-            GetComponent<SpriteRenderer>().flipX = false;
-            m_facingDirection = 1;
-        }
-
-        else if (inputX < 0)
-        {
-            GetComponent<SpriteRenderer>().flipX = true;
-            m_facingDirection = -1;
-        }
-
-        // Move
-        if (!m_rolling)
-            m_body2d.velocity = new Vector2(inputX * m_speed, m_body2d.velocity.y);
-
-        //Set AirSpeed in animator
-        m_animator.SetFloat("AirSpeedY", m_body2d.velocity.y);
-
-        //========================Handle Animations========================
-        //Attack
-        if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f && !m_rolling)
-        {
-            m_currentAttack++;
-
-            // Loop back to one after third attack
-            if (m_currentAttack > 3)
-                m_currentAttack = 1;
-
-            // Reset Attack combo if time since last attack is too large
-            if (m_timeSinceAttack > 1.0f)
-                m_currentAttack = 1;
-
-            // Call one of three attack animations "Attack1", "Attack2", "Attack3"
-            m_animator.SetTrigger("Attack" + m_currentAttack);
-            if (isSkill1Effective)
-            {
-                switch (m_currentAttack)
-                {
-                    case 1:
-                        Launch(projectilePrefab1);
-                        break;
-                    case 2:
-                        Launch(projectilePrefab2);
-                        break;
-                    case 3:
-                        Launch(projectilePrefab3);
-                        break;
-                    default:
-                        break;
-                }
-            }
-            else
-            {
-                //Call function attack
-                Attack();
-            }
-
-            // Reset timer
-            m_timeSinceAttack = 0.0f;
-        }
-
-
-
-        // Roll
-        else if (Input.GetKeyDown("left shift") && !m_rolling && m_grounded == true)
-        {
-            m_rolling = true;
-            m_animator.SetTrigger("Roll");
-            m_body2d.velocity = new Vector2(m_facingDirection * m_rollForce, m_body2d.velocity.y);
-        }
-
-
-        //Jump
-        else if (Input.GetKeyDown("space") && m_grounded && !m_rolling)
-        {
-            m_animator.SetTrigger("Jump");
-            m_grounded = false;
-            m_animator.SetBool("Grounded", m_grounded);
-            m_body2d.velocity = new Vector2(m_body2d.velocity.x, m_jumpForce);
-            m_groundSensor.Disable(0.2f);
-        }
-
-        //Run
-        else if (Mathf.Abs(inputX) > Mathf.Epsilon)
-        {
-            // Reset timer
-            m_delayToIdle = 0.05f;
-            m_animator.SetInteger("AnimState", 1);
-        }
-
-        //Idle
-        else
-        {
-            // Prevents flickering transitions to idle
-            m_delayToIdle -= Time.deltaTime;
-            if (m_delayToIdle < 0)
-                m_animator.SetInteger("AnimState", 0);
-        }
-
-        //Pause Menu
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            GameManager._instance.pause();
-            pauseMenu.SetActive(true);
-
-        }
-
     }
 
     // Animation Events
@@ -559,7 +571,7 @@ public class HeroKnight : MonoBehaviour
     {
         if (!pauseMenu.activeSelf) // check pause menu is active?
         {
-            if (currentMana < 80)
+            if (currentMana < ManaSkill12)
             {
                 DisplayDialogMana();
                 return;
@@ -569,7 +581,7 @@ public class HeroKnight : MonoBehaviour
             skill2Timer = skill2CountDownTime;
             isCountdown2 = true;
 
-            currentMana = Mathf.Clamp(currentMana - 80, 0, maxMana);
+            currentMana = Mathf.Clamp(currentMana - ManaSkill12, 0, maxMana);
             UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
 
             //Increased strength
@@ -605,7 +617,7 @@ public class HeroKnight : MonoBehaviour
     {
         if (!pauseMenu.activeSelf) // check pause menu is active?
         {
-            if (currentMana < 150)
+            if (currentMana < ManaSkill3)
             {
                 DisplayDialogMana();
                 return;
@@ -615,7 +627,7 @@ public class HeroKnight : MonoBehaviour
             skill3Timer = skill3CountDownTime;
             isCountdown3 = true;
 
-            currentMana = Mathf.Clamp(currentMana - 150, 0, maxMana);
+            currentMana = Mathf.Clamp(currentMana - ManaSkill3, 0, maxMana);
             UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
         }
         else return;
@@ -660,5 +672,21 @@ public class HeroKnight : MonoBehaviour
     }
     public void PlayWalkSound(){
         audioSource.PlayOneShot(walkingAudioClip);
+    }
+    public void ChangeLevelExp(float amount){
+        currentLevel += amount;
+        Debug.Log("Current EXP "+ currentLevel);
+        UILevel.instance.SetValueLevel(currentLevel/maxLevel);
+    }
+    //Levelup
+    private void LevelUp(){
+        levelEffect.Play();
+        //Power up
+        heroArmor += 10;
+        heroDamage *= 1.2f;
+        maxHealth *= 1.1f;
+        currentHealth = Mathf.Clamp(currentHealth + (maxHealth/10), 0, maxHealth );
+        maxMana *= 1.2f;
+        currentMana = Mathf.Clamp(currentMana + (maxMana /8), 0, maxMana);
     }
 }

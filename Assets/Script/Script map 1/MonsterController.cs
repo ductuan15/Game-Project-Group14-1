@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class MonsterController : MonoBehaviour
 {
-
-
     //Audio
     AudioSource audioSource;
     public AudioClip attackAudioClip;
@@ -39,26 +37,21 @@ public class MonsterController : MonoBehaviour
 
     public ParticleSystem attackEffect;
 
-
     //Health
-    protected int maxHealth = 1000;
-    public int health { get { return currentHealth; } }
-    private int currentHealth;
-
+    protected float maxHealth = 1000;
+    public float health { get { return currentHealth; } }
+    private float currentHealth;
     private bool isCanMove = true;
+    //Level up for hero
+    private HeroKnight heroKnight;
 
-
-
-    //public float timeInvincible = 1.0f;
-    //private bool isInvincible = false;
-    //private float invincibleTimer;
-    // Start is called before the first frame update
     protected virtual void Start()
     {
         currentHealth = this.maxHealth;
         renderer = GetComponent<Renderer>();
         rigidbody2D = GetComponent<Rigidbody2D>();
         audioSource = GetComponent<AudioSource>();
+        heroKnight = GameObject.Find("HeroKnight").GetComponent<HeroKnight>();
     }
 
     // Update is called once per frame
@@ -106,13 +99,9 @@ public class MonsterController : MonoBehaviour
     //delay attack
     protected virtual void Attack()
     {
-
         Debug.Log("Attack");
-
         audioSource.PlayOneShot(attackAudioClip);
-
         Collider2D[] hitHeros;
-
 
         if (direction.x > 0)
         {
@@ -141,7 +130,7 @@ public class MonsterController : MonoBehaviour
         Gizmos.DrawWireSphere(attackPointLeft.position, attackRange);
     }
 
-    public void ChangeHealth(int amount)
+    public void ChangeHealth(float amount)
     {
         m_animator.SetTrigger("TakeHit");
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
@@ -159,6 +148,7 @@ public class MonsterController : MonoBehaviour
     protected virtual void Death()
     {
         m_animator.SetBool("Death", true);
+        heroKnight.ChangeLevelExp(30);
         //Disable object
         foreach (Transform child in transform)
         {
@@ -179,7 +169,6 @@ public class MonsterController : MonoBehaviour
     void PlayWalkSound()
     {
         Debug.Log("Walking Sound");
-
         audioSource.PlayOneShot(walkingAudioClip);
     }
 
@@ -191,7 +180,6 @@ public class MonsterController : MonoBehaviour
     }
     private void OnParticleCollision(GameObject other)
     {
-
-        ChangeHealth(-200);
+        ChangeHealth(heroKnight.heroDamage*2);
     }
 }
