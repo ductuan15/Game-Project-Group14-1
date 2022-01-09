@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SlashingScript : MonoBehaviour
 {
+    private HeroKnight heroKnight;
     // Start is called before the first frame update
     void Start()
     {
-
+        heroKnight = GameObject.Find("HeroKnight").GetComponent<HeroKnight>();
     }
 
     // Update is called once per frame
@@ -21,7 +22,7 @@ public class SlashingScript : MonoBehaviour
         MonsterController e = other.collider.GetComponent<MonsterController>();
         if (e != null)
         {
-            e.ChangeHealth(-200);
+            e.ChangeHealth(-heroKnight.heroDamage);
         }
         Destroy(gameObject);
     }

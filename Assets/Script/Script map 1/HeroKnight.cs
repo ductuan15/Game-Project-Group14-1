@@ -526,7 +526,7 @@ public class HeroKnight : MonoBehaviour
     {
         if (!pauseMenu.activeSelf)
         {
-            if (currentMana < 80)
+            if (currentMana < ManaSkill12)
             {
                 DisplayDialogMana();
                 return;
@@ -536,7 +536,7 @@ public class HeroKnight : MonoBehaviour
             timerSkill1Efftive = skill1Effective;
             skill1Timer = skill1CountDownTime;
             isCountdown1 = true;
-            currentMana = Mathf.Clamp(currentMana - 80, 0, maxMana);
+            currentMana = Mathf.Clamp(currentMana - ManaSkill12, 0, maxMana);
             UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
         }
         else
