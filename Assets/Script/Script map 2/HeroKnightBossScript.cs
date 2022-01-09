@@ -22,7 +22,6 @@ public class HeroKnightBossScript : MonsterController
 
     protected override void Start()
     {
-        base.maxHealth = 1000;
         countAttack = skillEveryNAttackTime;
         base.monsterDistance = baseMonsterDistance;
         base.speed = baseSpeed;

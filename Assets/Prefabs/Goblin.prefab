@@ -216,7 +216,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &353611913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,7 +246,7 @@ MonoBehaviour:
   hero: {fileID: 0}
   delayTime: 0.4
   attackEffect: {fileID: 5920178652523393171}
-  maxHealth: 1000
+  maxHealth: 800
 --- !u!82 &77622825
 AudioSource:
   m_ObjectHideFlags: 0

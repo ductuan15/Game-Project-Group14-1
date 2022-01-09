@@ -794,11 +794,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
       propertyPath: CollisionModule.maxKillSpeed
-      value: 1
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
+      propertyPath: CollisionModule.minKillSpeed
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
       propertyPath: CollisionModule.colliderForce
-      value: 2
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1759968187893235361, guid: c3dc50cd18d80a64395988a9750fbd60, type: 3}
       propertyPath: CollisionModule.collisionMode
