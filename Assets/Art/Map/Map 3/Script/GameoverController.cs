@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class SelectMenuController : MonoBehaviour
+public class GameoverController : MonoBehaviour
 {
     AudioSource sound;
     public AudioClip click;
@@ -17,19 +18,10 @@ public class SelectMenuController : MonoBehaviour
     {
         
     }
-    public void selectMap1()
+    public void backtoMenu()
     {
         sound.PlayOneShot(click);
-        GameManager._instance.selectMap1();
-    }
-    public void selectMap2()
-    {
-        sound.PlayOneShot(click);
-        GameManager._instance.selectMap2();
-    }
-    public void selectMap3()
-    {
-        sound.PlayOneShot(click);
-        GameManager._instance.selectMap3();
+        SceneManager.LoadScene(0);
+        
     }
 }

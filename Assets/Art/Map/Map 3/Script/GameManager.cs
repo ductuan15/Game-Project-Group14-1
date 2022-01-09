@@ -23,7 +23,7 @@ public class GameManager
     }
 
     //Pause
-    public void pause()
+    public void pause() 
     {
         Time.timeScale = 0;
 
