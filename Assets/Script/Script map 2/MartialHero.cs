@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class MartialHero : MonsterController
 {
-    // Start is called before the first frame update
+
+    public GameObject projectilePrefab;
+
     bool isFireNextTime = false;
 
     int skillEveryNAttackTime = 1;
@@ -18,31 +20,48 @@ public class MartialHero : MonsterController
     protected override void Start()
     {
         base.maxHealth = 100000;
-        base.speed = 30;
+        base.speed = 5f;
         base.Start();
-        
+
     }
 
 
     override protected void Attack()
-
     {
-        Debug.Log(maxHealth);
+        Debug.Log(countAttack);
         base.Attack();
         if (countAttack == 0)
         {
-            base.speed = skillSpeed;
+            base.monsterDistance = 200;
             countAttack--;
+
         }
-        else if (countAttack < 0)
+        else if (countAttack < 1)
         {
+
+            Launch();
+            base.monsterDistance = 2.0f;
             countAttack = skillEveryNAttackTime;
-            base.speed = baseSpeed;
         }
         else
         {
             countAttack--;
         }
+
+
+    }
+    void Launch()
+    {
+        Debug.Log("Fire");
+        GameObject projectileObject = Instantiate(projectilePrefab, rigidbody2D.position, Quaternion.identity);
+
+        SliceScript projectile = projectileObject.GetComponent<SliceScript>();
+        projectile.transform.GetComponent<SpriteRenderer>().flipX = direction.x < 0;
+        Rigidbody2D projectilerigidbody2D = projectile.GetComponent<Rigidbody2D>();
+
+        projectilerigidbody2D.AddForce(direction * 300);
+        Destroy(projectileObject, 2.0f);
+
 
     }
 }

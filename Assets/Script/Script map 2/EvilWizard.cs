@@ -41,7 +41,7 @@ public class EvilWizard : MonsterController
         projectilerigidbody2D.SetRotation(-90.0f * direction.x);
         projectilerigidbody2D.AddForce(direction * 300);
 
-        Destroy(projectile, 1.0f);
+        Destroy(projectileObject, 1.0f);
     }
 
 }

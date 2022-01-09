@@ -35,9 +35,9 @@ public class HeroKnight : MonoBehaviour
 
     //========================Health========================
     [Header("Health and Mana")]
-    public int maxHealth = 1000;
-    public int health { get { return currentHealth; } }
-    private int currentHealth;
+    public float maxHealth = 1000;
+    public float health { get { return currentHealth; } }
+    private float currentHealth;
     //========================Mana========================
     public int maxMana = 300;
     public int mana { get { return currentMana; } }
@@ -50,37 +50,42 @@ public class HeroKnight : MonoBehaviour
     private int healing = 5;
     private int manaRecovery = 1;
 
-    //========================Hero Invincible========================
-    public float timeInvincible = 1.0f;
-    private bool isInvincible = false;
-    private float invincibleTimer;
-
     //========================Skill of hero========================
-    [Header("Skill of hero")]
-    private AbilitySystem abilitySystem;
+    public float displayTime = 2.0f;
+    //Skill: Block Damage
+    private bool isBlock = false;
+    [Header("Skill 1: Slashing Wind")]
+    
+    [Header("Skill 2: Shield Effective")]
     [SerializeField] ParticleSystem shieldEffect = null;
     public float skill2CountDownTime = 20.0f;
     public float skill2Effective = 7.0f;
     private float skill2Timer;
     private bool isCountdown2 = false;
-    //========================Display text========================
-    [Header("Skill 1: Slashing Wind")]
-    [Header("Skill 2: Shield Effective")]
-    
-    public float displayTime = 2.0f;
-    public GameObject skill2DialogBox;
-    float timerDisplay;
-    [Header("Skill 3: Ultimate")]
-    [Header("Skill: Block dame")]
-    private bool isBlock = false;
 
+    public GameObject skill2DialogBox;
+    float timerSkill2Display;
+    [Header("Skill 3: Ultimate")]
+    [SerializeField] ParticleSystem ultimateSkill = null;
+    public float skill3CountDownTime = 40.0f;
+    private float skill3Timer;
+    private bool isCountdown3 = false;
+    public GameObject skill3DialogBox;
+    float timerSkill3Display;
     // Use this for initialization
     void Start()
     {
+        //Dialog Skill
+        skill2DialogBox.transform.position = new Vector3(124.5f, 42, 0);
         skill2DialogBox.SetActive(false);
-        timerDisplay = -1;
+        timerSkill2Display = -1;
+        skill3DialogBox.transform.position = new Vector3(124.5f, 42, 0);
+        skill3DialogBox.SetActive(false);
+        timerSkill3Display = -1;
+
         //Skill and particle
         shieldEffect.Stop();
+        ultimateSkill.Stop();
 
         //Health and mana
         currentHealth = maxHealth;
@@ -99,26 +104,39 @@ public class HeroKnight : MonoBehaviour
         //========================Skill of hero========================
         //Skill 2: Shield Effective
         skill2Timer = Mathf.Clamp(skill2Timer - Time.deltaTime, -2, skill2CountDownTime);
+        if(skill3Timer <= 0){
+            isCountdown3 = false;
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha3)){
+            if(isCountdown2 == true){
+                DisplayDialog3();
+            }else
+                skill3();
+        }
+
+        skill3Timer = Mathf.Clamp(skill3Timer - Time.deltaTime, -2, skill3CountDownTime);
         if(skill2Timer <= 0){
             isCountdown2 = false;
         }
         if(Input.GetKeyDown(KeyCode.Alpha2)){
             if(isCountdown2 == true){
-                Debug.Log("Skill2 is countdown!");
                 DisplayDialog2();
             }else
                 skill2();
         }
         
         //Skill: Block dame
-        if(Input.GetKeyDown(KeyCode.Q)){
+        if(Input.GetKeyDown(KeyCode.Q) && !m_rolling){
                 Block();
         }
+        else if(Input.GetKeyUp(KeyCode.Q)){
+            notBlock();
+        }
         //========================Display text========================
-        if (timerDisplay >= 0)
+        if (timerSkill2Display >= 0)
         {
-            timerDisplay -= Time.deltaTime;
-            if (timerDisplay < 0)
+            timerSkill2Display -= Time.deltaTime;
+            if (timerSkill2Display < 0)
             {
                 skill2DialogBox.SetActive(false);
                 skill2DialogBox.transform.position = new Vector3(124.5f, 42, 0);
@@ -128,10 +146,19 @@ public class HeroKnight : MonoBehaviour
         if(skill2DialogBox.activeSelf == true){
             skill2DialogBox.transform.position += new Vector3(0, m_speed * 10 * Time.deltaTime, 0);
         }
-        //========================Hero invincible========================
-        invincibleTimer -= Time.deltaTime;
-        if (invincibleTimer < 0)
-            isInvincible = false;
+        if (timerSkill3Display >= 0)
+        {
+            timerSkill3Display -= Time.deltaTime;
+            if (timerSkill3Display < 0)
+            {
+                skill3DialogBox.SetActive(false);
+                skill3DialogBox.transform.position = new Vector3(124.5f, 42, 0);
+            }
+        
+        }
+        if(skill3DialogBox.activeSelf == true){
+            skill3DialogBox.transform.position += new Vector3(0, m_speed * 10 * Time.deltaTime, 0);
+        }
 
         //========================Healing and mana recovery========================
         healingTime -= Time.deltaTime;
@@ -146,7 +173,13 @@ public class HeroKnight : MonoBehaviour
         }
 
         //========================Handle input and movement========================
-        float inputX = Input.GetAxis("Horizontal");
+        float inputX;
+        if(isBlock == false){
+            inputX = Input.GetAxis("Horizontal");
+        }
+        else{
+            inputX = 0;
+        }
 
         // Increase timer that controls attack combo
         m_timeSinceAttack += Time.deltaTime;
@@ -271,7 +304,7 @@ public class HeroKnight : MonoBehaviour
     //========================Attack and health========================
     void Attack()
     {
-        if (!pauseMenu.activeSelf) // check pause menu is active?
+        if (!pauseMenu.activeSelf) //Check pause menu is active?
         {
             Collider2D[] hitHeros;
             m_animator.SetTrigger("Attack1");
@@ -315,20 +348,19 @@ public class HeroKnight : MonoBehaviour
     }
     public void ChangeHealth(int amount)
     {
-        // if hero rolling, he can dodge
-        if (amount < 0 && !m_rolling)
+        if (amount < 0 && !m_rolling)//If hero rolling, he can dodge
         {
-            //If character is invincible, it can't get damaged
-            if (isInvincible)
-                return;
-            m_animator.SetTrigger("Hurt");
-
-            isInvincible = true;
-            invincibleTimer = timeInvincible;
-            //Damage is reduced by armor 
-            int temp = Mathf.Clamp(amount + heroArmor, -maxHealth, 0);
-            currentHealth = Mathf.Clamp(currentHealth + temp, 0, maxHealth);
-
+            float temp = Mathf.Clamp(amount + heroArmor, -maxHealth, 0);
+            if(isBlock == false){
+                m_animator.SetTrigger("Hurt");
+                //Damage is reduced by armor 
+                currentHealth = Mathf.Clamp(currentHealth + temp, 0, maxHealth);
+            }
+            else{//Damage is reduced by Block SKill
+                m_animator.SetBool("BlockAction", true);
+                currentHealth = Mathf.Clamp(currentHealth + (temp*0.1f), 0, maxHealth);
+                Invoke("resetBlockAction",0.5f);
+            }
         }
         else
             currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
@@ -381,35 +413,61 @@ public class HeroKnight : MonoBehaviour
         heroArmor -= 10;
         heroDamage -= 50; 
     }
-    //Skill 3: Ultimate
+    public void DisplayDialog2()
+    {
+        if(skill2DialogBox.activeSelf == true)
+            return;
+        timerSkill2Display = displayTime;
+        skill2DialogBox.SetActive(true);
 
+    }
+    //Skill 3: Ultimate
+    public void skill3(){
+        if (!pauseMenu.activeSelf) // check pause menu is active?
+        {
+            ultimateSkill.Play();
+            skill3Timer = skill3CountDownTime;
+            isCountdown3 = true;
+
+            currentMana = Mathf.Clamp(currentMana - 150, 0, maxMana);
+            UIHealthBar.instance.SetValueMana(currentMana / (float)maxMana);
+        }
+        else return;
+    }
+    public void DisplayDialog3()
+    {
+        if(skill3DialogBox.activeSelf == true)
+            return;
+        timerSkill3Display = displayTime;
+        skill3DialogBox.SetActive(true);
+
+    }
     //Skill: Block
     private void Block(){
         isBlock = true;
         if (!m_rolling)
         {
-            m_animator.SetTrigger("Block");
-            m_animator.SetBool("IdleBlock", true);
+            m_animator.SetBool("Block", true);
         }
-
         else
-            m_animator.SetBool("IdleBlock", false);
-    }
-
-    //========================Display text function========================
-    public void DisplayDialog2()
-    {
-        if(skill2DialogBox.activeSelf == true)
             return;
-        timerDisplay = displayTime;
-        skill2DialogBox.SetActive(true);
+    }
+
+    private void notBlock(){
+        isBlock = false;
+        m_animator.SetBool("Block", false);
 
     }
+
+    private void resetBlockAction(){
+        m_animator.SetBool("BlockAction",false);
+    }
+    
     public void DisplayDialogBlock()
     {
         if(skill2DialogBox.activeSelf == true)
             return;
-        timerDisplay = displayTime;
+        timerSkill2Display = displayTime;
         skill2DialogBox.SetActive(true);
 
     }
