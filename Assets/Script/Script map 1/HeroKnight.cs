@@ -148,7 +148,7 @@ public class HeroKnight : MonoBehaviour
     void Update()
     {
         //Level up
-        if(currentLevel > maxLevel){
+        if(currentLevel >= maxLevel){
             currentLevel = Mathf.Clamp(currentLevel - maxLevel, 0, maxLevel);
             UILevel.instance.SetValueLevel(currentLevel/maxLevel);
             LevelUp();
@@ -226,7 +226,7 @@ public class HeroKnight : MonoBehaviour
 
         //========================Handle Animations========================
         //Attack
-        if (Input.GetMouseButtonDown(0) && m_timeSinceAttack > 0.25f && !m_rolling)
+        if (Input.GetKeyDown(KeyCode.S) && m_timeSinceAttack > 0.25f && !m_rolling)
         {
             m_currentAttack++;
 
